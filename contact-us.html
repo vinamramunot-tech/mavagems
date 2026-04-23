@@ -6,79 +6,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&amp;family=Inter:wght@100..900&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
-          tailwind.config = {
-            darkMode: "class",
-            theme: {
-              extend: {
-                colors: {
-                  "primary": "#00A86B", // Zambian Green
-                  "primary-dark": "#013220", // Forest Green
-                  "on-primary": "#ffffff",
-                  "secondary": "#2d3436",
-                  "background": "#faf9f6", // Off-white luxury background
-                  "surface": "#ffffff",
-                  "outline": "#00A86B",
-                  "primary-container": "#e6f7f0",
-                  "on-primary-container": "#004d32"
-                },
-                fontFamily: {
-                  "headline": ["Noto Serif", "serif"],
-                  "body": ["Inter", "sans-serif"],
-                  "label": ["Manrope", "sans-serif"]
-                },
-                borderRadius: {
-                  "DEFAULT": "4px",
-                  "lg": "8px",
-                  "xl": "12px",
-                  "full": "9999px"
-                },
-              },
-            },
-          }
-    </script>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
-            display: inline-block;
-            line-height: 1;
-        }
-        
-        /* Sticky Header Scroll Effects */
-        #header-nav {
-            transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), backdrop-filter 0.5s ease;
-        }
-        .scrolled #header-nav {
-            background-color: rgba(253, 248, 245, 0.95);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
-            backdrop-filter: blur(12px);
-        }
-        
-        /* Logo Scale Transition */
-        #nav-logo-container {
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            transform-origin: center center;
-        }
-
-        /* Nav Drawer Animation */
-        #nav-drawer {
-            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: translateX(-100%);
-        }
-        #nav-drawer.open {
-            transform: translateX(0);
-        }
-
-        input:focus, select:focus, textarea:focus {
-            outline: none !important;
-            box-shadow: none !important;
-            border-color: #00A86B !important;
-        }
-
-        #menu-btn {
-            transition: color 0.6s ease;
-        }
-    </style>
+<script src="tailwind-config.js"></script>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body class="bg-background text-secondary font-body selection:bg-primary-container selection:text-on-primary-container">
 <header class="fixed top-0 w-full z-50 transition-all duration-500 bg-white/10 backdrop-blur-sm border-b border-white/5" id="header-nav">
@@ -296,55 +225,5 @@
 <p class="font-label uppercase tracking-[0.1em] text-[11px] text-[#1C1B1A]/30 mt-8">© 2026 MAVA GEMS. ALL RIGHTS RESERVED.</p>
 </div>
 </footer>
-<script>
-    // Scroll handling for header scaling and background visibility
-    window.addEventListener('scroll', () => {
-        const logoContainer = document.getElementById('nav-logo-container');
-        const scrollY = window.scrollY;
-        const scrollThreshold = 150;
-        const body = document.body;
-        
-        // Progress from 0 to 1 based on threshold
-        let progress = Math.min(scrollY / scrollThreshold, 1);
-        
-        // Calculate scale from 1.5 to 1.0
-        let currentScale = 1.2 - (progress * 0.2);
-        
-        // Apply transform
-        if (logoContainer) {
-            logoContainer.style.transform = `translateX(-50%) scale(${currentScale})`;
-        }
-        
-        if (scrollY > 50) {
-            body.classList.add('scrolled');
-        } else {
-            body.classList.remove('scrolled');
-        }
-    });
-
-    // Navigation Drawer Toggle
-    const menuBtn = document.getElementById('menu-btn');
-    const closeNavBtn = document.getElementById('close-nav-btn');
-    const navDrawer = document.getElementById('nav-drawer');
-    const navOverlay = document.getElementById('nav-overlay');
-    const overlayBg = document.getElementById('overlay-bg');
-
-    function openNav() {
-        navDrawer.classList.add('open');
-        navDrawer.classList.remove('-translate-x-full');
-        navOverlay.classList.remove('pointer-events-none');
-        overlayBg.classList.add('opacity-100');
-    }
-
-    function closeNav() {
-        navDrawer.classList.remove('open');
-        navDrawer.classList.add('-translate-x-full');
-        overlayBg.classList.remove('opacity-100');
-        navOverlay.classList.add('pointer-events-none');
-    }
-
-    menuBtn.addEventListener('click', openNav);
-    closeNavBtn.addEventListener('click', closeNav);
-    overlayBg.addEventListener('click', closeNav);
-</script>
+<script src="scripts.js"></script>
 </body></html>

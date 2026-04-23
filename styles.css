@@ -1,0 +1,180 @@
+/* Shared Styles for MAVA Gems */
+
+/* Icons */
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    display: inline-block;
+    line-height: 1;
+}
+
+/* Gradients & Backgrounds */
+.jardin-gradient {
+    background: linear-gradient(135deg, #006d43 0%, #00a86b 100%);
+}
+.glass-panel {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+/* Header & Nav */
+#header-nav {
+    transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), backdrop-filter 0.5s ease;
+}
+.scrolled #header-nav {
+    background-color: rgba(253, 248, 245, 0.95);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(12px);
+}
+
+/* Nav Logo */
+#nav-logo-container {
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center center;
+}
+#nav-logo-mava, #nav-logo-gems {
+    transition: color 0.6s ease;
+}
+.scrolled #nav-logo-mava, 
+.scrolled #nav-logo-gems {
+    color: #1C1B1A;
+}
+.dark.scrolled #nav-logo-mava, 
+.dark.scrolled #nav-logo-gems {
+    color: #FDF8F5;
+}
+
+/* Hamburger Menu Button */
+#menu-btn {
+    transition: color 0.6s ease;
+}
+.scrolled #menu-btn {
+    color: #1C1B1A !important;
+}
+.dark.scrolled #menu-btn {
+    color: #FDF8F5 !important;
+}
+
+/* Side Navigation Drawer */
+#nav-drawer, #side-nav {
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+#nav-drawer {
+    transform: translateX(-100%);
+}
+#nav-drawer.open {
+    transform: translateX(0);
+}
+
+/* Utilities */
+.hide-scrollbar, .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar, .no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Editorial Underline (Combined animated version from manufacturing) */
+.editorial-underline {
+    position: relative;
+    display: inline-block;
+}
+.editorial-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    width: 0;
+    height: 1px;
+    background-color: currentColor;
+    transition: all 0.5s ease;
+    transform: translateX(-50%);
+}
+.editorial-underline:hover::after {
+    width: 100%;
+}
+
+/* Forms */
+input:focus, select:focus, textarea:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: #00A86B !important;
+}
+
+/* Timeline Components (Index) */
+.year-btn.active {
+    color: #006d43;
+    font-weight: 700;
+}
+.year-btn.active::after {
+    content: '';
+    position: absolute;
+    right: -1px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 40px;
+    background-color: #006d43;
+}
+@media (max-width: 767px) {
+    .year-btn.active::after {
+        right: 50%;
+        top: auto;
+        bottom: -1px;
+        transform: translateX(50%);
+        width: 40px;
+        height: 3px;
+    }
+}
+.timeline-content {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.timeline-content.hidden {
+    display: none;
+    opacity: 0;
+    transform: translateY(10px);
+}
+.timeline-content.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+.scroll-at-top #scroll-up-indicator {
+    opacity: 0 !important;
+    pointer-events: none;
+}
+.scroll-at-bottom #scroll-down-indicator {
+    opacity: 0 !important;
+    pointer-events: none;
+}
+
+/* Map Labels (Index) */
+.map-label {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    transform: translateY(5px);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2px 8px;
+    border-radius: 2px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    pointer-events: none;
+}
+.group:hover .map-label, .group:focus .map-label {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+@media (min-width: 768px) {
+    .map-label {
+        opacity: 0.8;
+        visibility: visible;
+        transform: none;
+        background: transparent;
+        box-shadow: none;
+        padding: 0;
+    }
+    .group:hover .map-label {
+        opacity: 1;
+    }
+}
