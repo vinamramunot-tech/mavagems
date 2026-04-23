@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&amp;family=Inter:wght@100..900&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+          tailwind.config = {
+            darkMode: "class",
+            theme: {
+              extend: {
+                colors: {
+                  "primary": "#00A86B", // Zambian Green
+                  "primary-dark": "#013220", // Forest Green
+                  "on-primary": "#ffffff",
+                  "secondary": "#2d3436",
+                  "background": "#faf9f6", // Off-white luxury background
+                  "surface": "#ffffff",
+                  "outline": "#00A86B",
+                  "primary-container": "#e6f7f0",
+                  "on-primary-container": "#004d32"
+                },
+                fontFamily: {
+                  "headline": ["Noto Serif", "serif"],
+                  "body": ["Inter", "sans-serif"],
+                  "label": ["Manrope", "sans-serif"]
+                },
+                borderRadius: {
+                  "DEFAULT": "4px",
+                  "lg": "8px",
+                  "xl": "12px",
+                  "full": "9999px"
+                },
+              },
+            },
+          }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+        
+        /* Sticky Header Scroll Effects */
+        #header-nav {
+            transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), backdrop-filter 0.5s ease;
+        }
+        .scrolled #header-nav {
+            background-color: rgba(253, 248, 245, 0.95);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(12px);
+        }
+        
+        /* Logo Scale Transition */
+        #nav-logo-container {
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-origin: center center;
+        }
+
+        /* Nav Drawer Animation */
+        #nav-drawer {
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateX(-100%);
+        }
+        #nav-drawer.open {
+            transform: translateX(0);
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none !important;
+            box-shadow: none !important;
+            border-color: #00A86B !important;
+        }
+
+        #menu-btn {
+            transition: color 0.6s ease;
+        }
+    </style>
+</head>
+<body class="bg-background text-secondary font-body selection:bg-primary-container selection:text-on-primary-container">
+<header class="fixed top-0 w-full z-50 transition-all duration-500 bg-white/10 backdrop-blur-sm border-b border-white/5" id="header-nav">
+<nav class="flex items-center justify-between px-8 py-6 w-full max-w-none relative">
+<!-- Hamburger Menu -->
+<div class="flex items-center gap-6">
+<button class="text-on-surface hover:text-primary transition-colors scale-95 active:duration-150 text-black" id="menu-btn">
+<span class="material-symbols-outlined transition-colors duration-600 !text-[24px]" data-icon="menu" id="menu-icon">menu</span>
+</button>
+</div>
+<!-- Centered Logo Lockup -->
+<a href="index.html" class="absolute left-1/2 -translate-x-1/2 flex flex-col items-center" id="nav-logo-container" style="transform: translateX(-50%) scale(1.2);">
+<span class="text-xl md:text-2xl font-headline tracking-[0.2em] uppercase font-light leading-tight text-black" id="nav-logo-mava">MAVA</span>
+<span class="text-[10px] md:text-[12px] font-headline tracking-[0.4em] uppercase font-light -mt-1 text-black/70" id="nav-logo-gems">GEMS</span>
+</a>
+<!-- Right side empty for symmetry -->
+<div class="w-10"></div>
+</nav>
+</header>
+<!-- Side Navigation Drawer -->
+<div class="fixed inset-0 z-[60] pointer-events-none" id="nav-overlay">
+<div class="fixed inset-0 bg-black/20 backdrop-blur-sm opacity-0 transition-opacity duration-500 pointer-events-none" id="overlay-bg"></div>
+<div class="fixed inset-y-0 left-0 flex flex-col p-10 bg-[#FDF8F5] dark:bg-[#1C1B1A] h-full w-[320px] border-r border-[#ECE7E4]/20 shadow-2xl transition-transform -translate-x-full pointer-events-auto" id="nav-drawer">
+<div class="flex justify-between items-center mb-20">
+<a href="index.html" class="font-headline text-xl tracking-widest text-on-surface hover:text-primary transition-colors cursor-pointer">MAVA GEMS</a>
+<button class="text-on-surface" id="close-nav-btn">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</div>
+<div class="space-y-12">
+<div>
+<nav class="flex flex-col gap-6">
+<a class="font-label uppercase tracking-[0.1rem] text-sm text-[#1C1B1A]/60 hover:text-[#006D43] transition-colors" href="manufacturing.html">Manufacturing</a>
+<a class="font-label uppercase tracking-[0.1rem] text-sm text-[#1C1B1A]/60 hover:text-[#006D43] transition-colors" href="about-us.html">About Us</a>
+<a class="font-label uppercase tracking-[0.1rem] text-sm text-[#006D43] font-bold" href="contact-us.html">Contact Us</a>
+</nav>
+</div>
+<div class="pt-12">
+<button class="w-full border border-primary text-primary py-4 font-label text-xs tracking-widest uppercase hover:bg-primary hover:text-white transition-all">
+                    Private Viewing
+                </button>
+</div>
+</div>
+<div class="mt-auto">
+<p class="font-headline text-sm italic text-on-surface/40">Exquisite Zambian Emeralds</p>
+</div>
+</div>
+</div>
+<main class="pt-32">
+<!-- Hero Section -->
+<section class="px-12 py-24 md:py-40 max-w-screen-2xl mx-auto flex flex-col md:flex-row items-end gap-12">
+<div class="md:w-2/3">
+<p class="font-label text-xs uppercase tracking-[0.4em] text-primary font-semibold mb-6">Expert Manufacturing</p>
+<h1 class="font-headline text-5xl md:text-7xl lg:text-8xl leading-tight mb-8">Refining <br/><span class="italic text-primary-dark">Nature's Brilliance</span></h1>
+<p class="font-body text-lg text-secondary/80 max-w-xl leading-relaxed">
+                MAVA Gems translates raw earth into faceted perfection. Our master cutters and gemologists provide a bespoke bridge between the mine and the most prestigious jewelry houses.
+            </p>
+</div>
+<div class="md:w-1/3 w-full aspect-[3/4] overflow-hidden rounded-lg shadow-2xl">
+<img alt="A collection of raw, unpolished emerald crystals on a dark surface" class="w-full h-full object-cover grayscale brightness-110 hover:grayscale-0 transition-all duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDz9FMURW2i056qrXhbgxc7pcRcZUJwTsJWOEbr_-uMeg__sF07mUKgqNr6S6cmIMFEyeSNxD34VpvwP8cZ9GxGmM1ppqex8E5aZVmqTON-f7DaDK1RduzmonbAg4thDd9wJy9phiWQQgQD6sXHbDp6Vh4bzNpkOmDRXIVH2x56JKwoUr2yE6JwZ_We8btvzbu8x1BTOy8pwSSonSPxSlADuL9h7RP51Tiy8zOSCiT66nmV7YjvLCZCTbAEVmbDQnx4qC8e3lTzmpM"/>
+</div>
+</section>
+<!-- Signature Divider -->
+<div class="px-12 max-w-screen-2xl mx-auto mb-24">
+<div class="w-[1px] h-40 bg-primary/30 mx-auto md:mx-0"></div>
+</div>
+<!-- Service Options Bento -->
+<section class="px-12 py-32 bg-primary-container/30">
+<div class="max-w-screen-2xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+<!-- Service 1 -->
+<div class="group cursor-pointer">
+<div class="aspect-[4/5] bg-surface mb-8 overflow-hidden rounded-lg">
+<img alt="Close-up of a high-quality blue sapphire in a jeweler's loupe" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCD1LBdXZhlTHtIERxqeCc-OID-1jP0NnmTNDcj9q1Q6I-DvPbI4LTIdC_BEA8XDtGK-zsSRGuOq_eQ7GDGnqGopDzXZkwZF6cThbzOXcS3LgX6i2VOsZDdf5QMbAbt2EBQSFk9ofrKsoQgaVFRhweBqvGibkSFz5moWitm2NzVTaAivbDTY1ImSNK1mGjk8Svh7wq9z4Mp8dHuwaIyHvoKn9UgiwfBdAEfVqRjg7JoaTm6n_F4uVtFBUBbTvyWu0WND5seqeT4ck8"/>
+</div>
+<h3 class="font-headline text-2xl mb-4 text-primary-dark">Bespoke Sourcing</h3>
+<p class="font-body text-sm text-secondary/70 mb-6 leading-relaxed">Partner with our master gemologists to source the world's rarest stones, from untreated Zambian emeralds to vivid green diamonds.</p>
+<a class="font-label text-[10px] uppercase tracking-widest text-primary font-bold border-b-2 border-transparent group-hover:border-primary pb-1 transition-all" href="#">Inquire About Sourcing</a>
+</div>
+<!-- Service 2 -->
+<div class="group cursor-pointer md:mt-20">
+<div class="aspect-[4/5] bg-surface mb-8 overflow-hidden rounded-lg">
+<img alt="A master craftsman cutting a diamond on a traditional lapidary wheel" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRLTuutjDH3ivO5cu1vIOr1vGYUegf76Xx5BSAEllgflpnTmsHejDNBIgIOtt1TfXw1mIETPxCCdbQPVJRLJlHsbk0Z3M0zDrD3pmEXa10-t7BcxyenIMQWm-tYRy-QX3qBBdQIfZGJf0NdsOt20QWZHQaEg6uoehgueTdmmp9GDbx0ugdxPkmdIiuMDP8WbGJH2eTM6GHKSPk72hZqBT5hTlE6GBRqAfpNAm2Ainjrn8PgNB2nTBxtWTw2Oj-_XkYmgvGJ7GT-Lw"/>
+</div>
+<h3 class="font-headline text-2xl mb-4 text-primary-dark">Precision Cutting</h3>
+<p class="font-body text-sm text-secondary/70 mb-6 leading-relaxed">Our artisans use heritage techniques to reveal the heart of every gem, maximizing fire and brilliance while preserving carat weight.</p>
+<a class="font-label text-[10px] uppercase tracking-widest text-primary font-bold border-b-2 border-transparent group-hover:border-primary pb-1 transition-all" href="#">Explore Cutting Services</a>
+</div>
+<!-- Service 3 -->
+<div class="group cursor-pointer">
+<div class="aspect-[4/5] bg-surface mb-8 overflow-hidden rounded-lg">
+<img alt="A tray of perfectly faceted diamonds of various sizes" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCamyQ90WvS-js1rwR7AIW710_QU_VVYQIgiIWVWn3Dqjo_gwDblKsnMK7533U-5YiymFyJEJTx3g669Gyg5PuSBXFx5wMhTmHKEMf5HCHID8SGpzmdPweT_ClGUkfRyxQwBoc4Th8HK4FQ_ttWVclBBWc1UntvI9Uy_gQjpeOgo981pBgzpQilg-v_cWhhMZH8ue_liqifg2zRJgX1KygeOXqF41T1z9iJXBkwdT_YoCuZ-GrMoXr3zVFCr2tat7VPbrtKn8BzSww"/>
+</div>
+<h3 class="font-headline text-2xl mb-4 text-primary-dark">Wholesale Inquiries</h3>
+<p class="font-body text-sm text-secondary/70 mb-6 leading-relaxed">Exclusive manufacturing partnerships for elite jewelry houses. High-volume supply with unmatched quality consistency.</p>
+<a class="font-label text-[10px] uppercase tracking-widest text-primary font-bold border-b-2 border-transparent group-hover:border-primary pb-1 transition-all" href="#">Apply for Partnership</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Form Section -->
+<section class="px-12 py-32 max-w-screen-2xl mx-auto flex flex-col lg:flex-row gap-24 items-start">
+<div class="lg:w-[40%] lg:sticky lg:top-40">
+<h2 class="font-headline text-4xl mb-6 text-primary-dark">Concierge Request</h2>
+<p class="font-body text-secondary/70 leading-relaxed mb-12">
+                Please provide your professional details and the nature of your request. A MAVA Gems representative will contact you within 24 hours.
+            </p>
+<div class="space-y-8">
+<div class="border-l-2 border-primary pl-6">
+<p class="font-label text-[10px] uppercase tracking-widest text-primary font-bold mb-2">Global Headquarters</p>
+<p class="font-body text-lg">Jaipur, India</p>
+</div>
+<div class="border-l-2 border-primary pl-6">
+<p class="font-label text-[10px] uppercase tracking-widest text-primary font-bold mb-2">Direct Channel</p>
+<p class="font-body text-lg">connect@mavagems.com</p>
+</div>
+</div>
+</div>
+<div class="lg:w-[60%] bg-surface border border-primary/10 shadow-xl p-8 md:p-16 rounded-xl">
+<form class="space-y-12">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<div class="relative group">
+<input class="w-full bg-transparent border-t-0 border-x-0 border-b-2 border-primary/20 py-4 font-body text-secondary focus:border-primary peer transition-all" id="first_name" placeholder=" " required="" type="text"/>
+<label class="absolute left-0 top-4 font-label text-[10px] uppercase tracking-widest text-secondary/50 transition-all peer-focus:-top-4 peer-focus:text-primary peer-focus:font-bold peer-[:not(:placeholder-shown)]:-top-4" for="first_name">First Name</label>
+</div>
+<div class="relative group">
+<input class="w-full bg-transparent border-t-0 border-x-0 border-b-2 border-primary/20 py-4 font-body text-secondary focus:border-primary peer transition-all" id="last_name" placeholder=" " required="" type="text"/>
+<label class="absolute left-0 top-4 font-label text-[10px] uppercase tracking-widest text-secondary/50 transition-all peer-focus:-top-4 peer-focus:text-primary peer-focus:font-bold peer-[:not(:placeholder-shown)]:-top-4" for="last_name">Last Name</label>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<div class="relative group">
+<input class="w-full bg-transparent border-t-0 border-x-0 border-b-2 border-primary/20 py-4 font-body text-secondary focus:border-primary peer transition-all" id="email" placeholder=" " required="" type="email"/>
+<label class="absolute left-0 top-4 font-label text-[10px] uppercase tracking-widest text-secondary/50 transition-all peer-focus:-top-4 peer-focus:text-primary peer-focus:font-bold peer-[:not(:placeholder-shown)]:-top-4" for="email">Work Email</label>
+</div>
+<div class="relative group">
+<input class="w-full bg-transparent border-t-0 border-x-0 border-b-2 border-primary/20 py-4 font-body text-secondary focus:border-primary peer transition-all" id="business_name" placeholder=" " required="" type="text"/>
+<label class="absolute left-0 top-4 font-label text-[10px] uppercase tracking-widest text-secondary/50 transition-all peer-focus:-top-4 peer-focus:text-primary peer-focus:font-bold peer-[:not(:placeholder-shown)]:-top-4" for="business_name">Business Name</label>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<div class="relative group">
+<select class="w-full bg-transparent border-t-0 border-x-0 border-b-2 border-primary/20 py-4 font-body text-secondary focus:border-primary appearance-none peer rounded-none" id="subject" required="">
+<option disabled="" selected="" value=""></option>
+<option value="sourcing">Bespoke Sourcing</option>
+<option value="cutting">Precision Cutting</option>
+<option value="wholesale">Wholesale Partnership</option>
+<option value="valuation">Valuation Services</option>
+</select>
+<label class="absolute left-0 top-4 font-label text-[10px] uppercase tracking-widest text-secondary/50 transition-all peer-focus:-top-4 peer-focus:text-primary peer-focus:font-bold peer-valid:-top-4" for="subject">Nature of Inquiry</label>
+<span class="absolute right-0 top-4 material-symbols-outlined text-primary/40 pointer-events-none" data-icon="expand_more">expand_more</span>
+</div>
+<div class="relative group">
+<select class="w-full bg-transparent border-t-0 border-x-0 border-b-2 border-primary/20 py-4 font-body text-secondary focus:border-primary appearance-none peer rounded-none" id="gemstone_interest" required="">
+<option disabled="" selected="" value=""></option>
+<option value="emeralds">Emeralds (Signature)</option>
+<option value="diamonds">Diamonds</option>
+<option value="rubies">Rubies</option>
+<option value="sapphires">Sapphires</option>
+<option value="multiple">Multiple / Mixed Lot</option>
+</select>
+<label class="absolute left-0 top-4 font-label text-[10px] uppercase tracking-widest text-secondary/50 transition-all peer-focus:-top-4 peer-focus:text-primary peer-focus:font-bold peer-valid:-top-4" for="gemstone_interest">Gemstone Type of Interest</label>
+<span class="absolute right-0 top-4 material-symbols-outlined text-primary/40 pointer-events-none" data-icon="gemstone">diamond</span>
+</div>
+</div>
+<div class="relative group">
+<textarea class="w-full bg-transparent border-t-0 border-x-0 border-b-2 border-primary/20 py-4 font-body text-secondary focus:border-primary peer transition-all resize-none" id="message" placeholder=" " rows="4"></textarea>
+<label class="absolute left-0 top-4 font-label text-[10px] uppercase tracking-widest text-secondary/50 transition-all peer-focus:-top-4 peer-focus:text-primary peer-focus:font-bold peer-[:not(:placeholder-shown)]:-top-4" for="message">Specific requirements or stone specifications?</label>
+</div>
+<button class="w-full md:w-auto px-20 py-5 bg-primary-dark text-on-primary font-label text-[10px] uppercase tracking-[0.3em] font-bold transition-all hover:bg-primary active:scale-95 shadow-lg" type="submit">
+                    Submit Inquiry
+                </button>
+</form>
+</div>
+</section>
+<!-- Lab & Workshop Section -->
+<section class="py-32 border-t border-primary/10">
+<div class="px-12 max-w-screen-2xl mx-auto flex flex-col md:flex-row gap-20 items-center">
+<div class="md:w-1/2 aspect-video overflow-hidden rounded-lg shadow-xl">
+<img alt="The sterile interior of a modern gemological laboratory with advanced microscopes" class="w-full h-full object-cover grayscale contrast-125 hover:grayscale-0 transition-all duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApHjiQmHX3pO-klOZSTc0ZklkEVr6V7gFRuO1IL4JrveJ67UG9oRmBWslYc7DnfWrXr--TNZNL8zdJFCxO7cfZNWsfZrAxmZnHRr5rXWbyxASv8-rjg2DkoTltacCid_amUivTvMuKi5uwb1Hu3ubinDWZIX9FWA84brese3o1JpzbdRzKu2txc38EORCBEABYAeUUElVaX2zVtC_nwaJAq4OZg_s3OWky0ws3aeUe2P12rrtqfFWdj0UylfMWlfrWgtZzyGGM0Us"/>
+</div>
+<div class="md:w-1/2">
+<h2 class="font-headline text-4xl mb-6 text-primary-dark">Our Manufacturing Facilities</h2>
+<p class="font-body text-secondary/70 mb-10 leading-relaxed text-lg">From the heart of the diamond district to our state-of-the-art colored stone cutting centers, MAVA Gems maintains full chain-of-custody and ethical oversight of every gem we process.</p>
+<div class="flex flex-col gap-4">
+<div class="relative">
+<input class="w-full bg-transparent border-t-0 border-x-0 border-b-2 border-primary/20 py-4 font-body text-secondary focus:border-primary pr-12" placeholder="Locate a Regional Office" type="text"/>
+<button class="absolute right-0 top-4">
+<span class="material-symbols-outlined text-primary" data-icon="search">search</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#ECE7E4] dark:bg-[#121110] w-full py-20 border-t border-[#1C1B1A]/5">
+<div class="flex flex-col items-center gap-10 px-8 w-full">
+<!-- Footer Logo -->
+<div class="flex flex-col items-center">
+<span class="text-3xl font-headline tracking-[0.2em] uppercase text-[#1C1B1A] dark:text-[#FDF8F5] font-light leading-tight">MAVA</span>
+<span class="text-[14px] font-headline tracking-[0.4em] uppercase text-[#1C1B1A] dark:text-[#FDF8F5] font-light -mt-1">GEMS</span>
+</div>
+<!-- Footer Links -->
+<div class="flex flex-wrap justify-center gap-12 mt-4">
+<a class="font-label uppercase tracking-[0.05rem] text-[10px] text-[#1C1B1A]/50 dark:text-[#FDF8F5]/40 hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label uppercase tracking-[0.05rem] text-[10px] text-[#1C1B1A]/50 dark:text-[#FDF8F5]/40 hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="font-label uppercase tracking-[0.05rem] text-[10px] text-[#1C1B1A]/50 dark:text-[#FDF8F5]/40 hover:text-primary transition-colors" href="#">Shipping &amp; Returns</a>
+<a class="font-label uppercase tracking-[0.05rem] text-[10px] text-[#1C1B1A]/50 dark:text-[#FDF8F5]/40 hover:text-primary transition-colors" href="#">Sustainability</a>
+</div>
+<!-- Social Icons with Verdant Luxe styling -->
+<div class="flex gap-10 mt-4">
+<span class="material-symbols-outlined text-primary text-2xl cursor-pointer hover:scale-110 transition-transform" data-icon="public">public</span>
+<span class="material-symbols-outlined text-primary text-2xl cursor-pointer hover:scale-110 transition-transform" data-icon="recycling">recycling</span>
+<span class="material-symbols-outlined text-primary text-2xl cursor-pointer hover:scale-110 transition-transform" data-icon="mail">mail</span>
+</div>
+<!-- Copyright -->
+<p class="font-label uppercase tracking-[0.1em] text-[11px] text-[#1C1B1A]/30 mt-8">© 2026 MAVA GEMS. ALL RIGHTS RESERVED.</p>
+</div>
+</footer>
+<script>
+    // Scroll handling for header scaling and background visibility
+    window.addEventListener('scroll', () => {
+        const logoContainer = document.getElementById('nav-logo-container');
+        const scrollY = window.scrollY;
+        const scrollThreshold = 150;
+        const body = document.body;
+        
+        // Progress from 0 to 1 based on threshold
+        let progress = Math.min(scrollY / scrollThreshold, 1);
+        
+        // Calculate scale from 1.5 to 1.0
+        let currentScale = 1.2 - (progress * 0.2);
+        
+        // Apply transform
+        if (logoContainer) {
+            logoContainer.style.transform = `translateX(-50%) scale(${currentScale})`;
+        }
+        
+        if (scrollY > 50) {
+            body.classList.add('scrolled');
+        } else {
+            body.classList.remove('scrolled');
+        }
+    });
+
+    // Navigation Drawer Toggle
+    const menuBtn = document.getElementById('menu-btn');
+    const closeNavBtn = document.getElementById('close-nav-btn');
+    const navDrawer = document.getElementById('nav-drawer');
+    const navOverlay = document.getElementById('nav-overlay');
+    const overlayBg = document.getElementById('overlay-bg');
+
+    function openNav() {
+        navDrawer.classList.add('open');
+        navDrawer.classList.remove('-translate-x-full');
+        navOverlay.classList.remove('pointer-events-none');
+        overlayBg.classList.add('opacity-100');
+    }
+
+    function closeNav() {
+        navDrawer.classList.remove('open');
+        navDrawer.classList.add('-translate-x-full');
+        overlayBg.classList.remove('opacity-100');
+        navOverlay.classList.add('pointer-events-none');
+    }
+
+    menuBtn.addEventListener('click', openNav);
+    closeNavBtn.addEventListener('click', closeNav);
+    overlayBg.addEventListener('click', closeNav);
+</script>
+</body></html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html class="light scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About Us | MAVA GEMS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&amp;family=Inter:wght@100..900&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#8ff780",
+                        "on-primary-fixed-variant": "#005232",
+                        "tertiary-fixed": "#9af6b8",
+                        "on-secondary-container": "#00730d",
+                        "tertiary-fixed-dim": "#7ed99e",
+                        "primary-fixed-dim": "#59de9b",
+                        "on-background": "#1c1b1a",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#92fa83",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#31302e",
+                        "background": "#fdf8f5",
+                        "on-tertiary-fixed": "#00210f",
+                        "on-secondary-fixed": "#002201",
+                        "tertiary": "#006d3d",
+                        "secondary": "#006e0c",
+                        "surface-dim": "#ddd9d6",
+                        "on-tertiary-container": "#00331a",
+                        "on-tertiary": "#ffffff",
+                        "inverse-on-surface": "#f4f0ed",
+                        "surface-container-low": "#f7f3f0",
+                        "surface-container": "#f1edea",
+                        "on-primary": "#ffffff",
+                        "outline-variant": "#bccabe",
+                        "surface": "#fdf8f5",
+                        "on-primary-fixed": "#002111",
+                        "on-surface-variant": "#3d4a41",
+                        "inverse-primary": "#59de9b",
+                        "on-secondary-fixed-variant": "#005307",
+                        "surface-container-highest": "#e6e2df",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#fdf8f5",
+                        "primary": "#006d43",
+                        "tertiary-container": "#49a46d",
+                        "primary-container": "#00a86b",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#00522d",
+                        "on-surface": "#1c1b1a",
+                        "on-primary-container": "#00331d",
+                        "on-secondary": "#ffffff",
+                        "surface-variant": "#e6e2df",
+                        "surface-container-high": "#ece7e4",
+                        "primary-fixed": "#78fbb6",
+                        "secondary-fixed-dim": "#77dd6a",
+                        "outline": "#6d7a70",
+                        "error": "#ba1a1a",
+                        "surface-tint": "#006d43"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Noto Serif"],
+                        "body": ["Inter"],
+                        "label": ["Manrope"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+        .editorial-underline {
+            position: relative;
+            display: inline-block;
+        }
+        .editorial-underline::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            bottom: -4px;
+            left: 0;
+            background-color: currentColor;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        
+        /* Nav Logo Animation Styles */
+        #nav-logo-container {
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-origin: center center;
+        }
+        
+        .scrolled #header-nav {
+            background-color: rgba(253, 248, 245, 0.95);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 transition-all duration-500 bg-white/10 backdrop-blur-sm border-b border-white/5" id="header-nav">
+<nav class="flex items-center justify-between px-8 py-6 w-full max-w-none relative">
+<div class="flex items-center gap-6">
+<button class="text-on-surface hover:text-primary transition-colors scale-95 active:duration-150" id="menu-btn">
+<span class="material-symbols-outlined transition-colors duration-600">menu</span>
+</button>
+</div>
+<!-- Centered Logo with Scroll Animation -->
+<a href="index.html" class="absolute left-1/2 -translate-x-1/2 flex flex-col items-center" id="nav-logo-container" style="transform: translateX(-50%) scale(1.2);">
+<span class="text-xl md:text-2xl font-headline tracking-[0.2em] uppercase font-light leading-tight text-on-surface" id="nav-logo-mava">MAVA</span>
+<span class="text-[10px] md:text-[12px] font-headline tracking-[0.4em] uppercase font-light -mt-1 text-on-surface/70" id="nav-logo-gems">GEMS</span>
+</a>
+<!-- Right placeholder to maintain layout balance -->
+<div class="w-10"></div>
+</nav>
+</header>
+<!-- SideNavBar -->
+<div class="fixed inset-y-0 left-0 z-[60] flex flex-col p-10 bg-[#FDF8F5] dark:bg-[#1C1B1A] h-full w-[320px] border-r border-[#ECE7E4]/20 shadow-2xl transition-transform -translate-x-full" id="side-nav">
+<div class="flex justify-between items-center mb-20">
+<a href="index.html" class="font-headline text-xl tracking-widest hover:text-primary transition-colors cursor-pointer">MAVA GEMS</a>
+<button class="text-on-surface" onclick="document.getElementById('side-nav').classList.add('-translate-x-full')">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="space-y-12">
+<div>
+<nav class="flex flex-col gap-6">
+<a class="font-label uppercase tracking-[0.1rem] text-sm text-[#1C1B1A]/60 hover:text-[#006D43] transition-colors" href="manufacturing.html">Manufacturing</a>
+<a class="font-label uppercase tracking-[0.1rem] text-sm text-[#006D43] font-bold" href="about-us.html">About Us</a>
+<a class="font-label uppercase tracking-[0.1rem] text-sm text-[#1C1B1A]/60 hover:text-[#006D43] transition-colors" href="contact-us.html">Contact Us</a>
+</nav>
+</div>
+<div class="pt-12">
+<button class="w-full border border-primary text-primary py-4 font-label text-xs tracking-widest uppercase hover:bg-primary hover:text-white transition-all">
+                Private Viewing
+            </button>
+</div>
+</div>
+<div class="mt-auto">
+<p class="font-headline text-sm italic text-on-surface/40">Exquisite Zambian Emeralds</p>
+</div>
+</div>
+<main class="pt-24 overflow-x-hidden">
+<!-- Hero Section: Editorial Asymmetry -->
+<section class="relative min-h-[921px] flex flex-col justify-center px-8 md:px-20 lg:px-40 py-20">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-5 z-10">
+<p class="font-label text-sm tracking-[0.3em] text-primary uppercase mb-6">The Emerald Gallery</p>
+<h1 class="font-headline text-5xl md:text-7xl lg:text-8xl leading-tight mb-8 tracking-tighter text-on-surface">
+                    In Pursuit of <br/> <span class="italic font-light">Luminescence.</span>
+</h1>
+<p class="font-body text-lg text-on-surface-variant max-w-md leading-relaxed">
+                    For three generations, MAVA Gems has stood at the intersection of geological rarity and artisanal mastery, curating the world's most vibrant Zambian emeralds.
+                </p>
+</div>
+<div class="lg:col-span-7 relative">
+<div class="aspect-[4/5] md:aspect-[16/10] overflow-hidden rounded-sm transform lg:translate-x-20">
+<img class="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-1000" data-alt="Macro photography of a faceted deep green emerald crystal with sharp internal jardin inclusions reflecting soft museum-style lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6LD0xtFSs8dBfWk7o0REq5BQ0nqad8r-sTror86S56D59YSWSl4X5e84n7O3NKMYwCE6AaK36KUePgsiSM0o87Gm526hLc_SlaLDLcmRrK2ZUIh9NSskDgbvQSvB-AsFN9_rsw6nDR4pD8GjgGnz838Cyjl6a9W9BNAJJwRCFpHzkkyTf-ffqBV068IavqW5Hqzs-lelBFrB8LlON5l-0hMsmP9aJUob3P-_mL5BFRtGpZky24XZFhCZOkjg_7Xt6iLd_FPJjQ7I"/>
+</div>
+<div class="absolute -bottom-12 -left-12 hidden lg:block w-64 h-64 bg-surface-container-low -z-10"></div>
+</div>
+</div>
+</section>
+<!-- Our Heritage Section: Background Tonal Shift -->
+<section class="bg-surface-container-low py-32 px-8 md:px-20 lg:px-40">
+<div class="max-w-[1400px] mx-auto flex flex-col md:flex-row gap-20">
+<div class="md:w-1/3">
+<h2 class="font-headline text-4xl leading-snug text-on-surface">Our Heritage</h2>
+<div class="w-12 h-[2px] bg-primary mt-8"></div>
+</div>
+<div class="md:w-2/3 space-y-12">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<div class="space-y-6">
+<p class="font-body text-xl leading-relaxed text-on-surface font-medium">
+                            Founded in the lush highlands of the Muzo region, our story began not with a sale, but with a discovery of a single 12-carat crystalline marvel.
+                        </p>
+</div>
+<div class="space-y-6">
+<p class="font-body text-base leading-relaxed text-on-surface-variant">
+                            That first stone defined our philosophy: to treat every gemstone as a living entity. We do not merely cut stones; we reveal their internal "jardin"—the unique garden of inclusions that proves a gem's natural origin and soul.
+                        </p>
+<a class="font-headline text-primary editorial-underline text-lg hover:opacity-80 transition-opacity" href="#">Explore the Archives</a>
+</div>
+</div>
+<div class="aspect-video overflow-hidden rounded-sm">
+<img class="w-full h-full object-cover" data-alt="Black and white archival style photography of a traditional gemstone jeweler's desk with old metal tools and raw emerald crystals" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBp-F0McKWZihbcIX_2qp8soYZ51rAq1d4QkwL3Phi4lg7GcUP1L4hO6ZDyRX1N74WPZAfdDHv7-fkHDomFiprp4qiQCECbaVdTwvD2r5dgvub0aa7Z6Cu_dq9o5KoQXoUSk3CRRFSlHBtSBGWVYUkJIp_kDTtV6SKH4vhgGxFErK2zXU_Iv6HxIGI6N3K9OYn_MJ7AgHYlSiolUhqqbIT2E3exhrCGBGW5NnrTxEuQOM3vOFZK0o6eI0HJHyS-v5XXvtpVunm3ZLc"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Master Lapidaries: Signature Cards -->
+<section class="py-32 px-8 md:px-20 lg:px-40">
+<div class="flex flex-col mb-24 items-center text-center">
+<p class="font-label text-xs tracking-[0.2em] text-primary uppercase mb-4">Precision Mastery</p>
+<h2 class="font-headline text-5xl md:text-6xl text-on-surface">The Master Lapidaries</h2>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Gem Card 1 -->
+<div class="bg-surface-container-lowest p-8 flex flex-col group">
+<div class="relative mb-12 overflow-hidden aspect-[3/4]">
+<img class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 grayscale" data-alt="Portrait of a senior gem artisan with focused gaze and skilled hands working in a modern well-lit jewelry studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkTqcJvEGiv1YFDzew4AcjtOGRSTufWWw7YD_CUlPU8ePm_ZXBnt1cpuNKgAq7V81TOSW4bEyprRjXemTWT9FEKlUvzxIL5wFSAuIrUIbP3zglt8c-i4y5pPFhp-8aKu4NP22eyvMf65u0ReVI75DuJS1ExfAk-qvWY50HOBV4Au-FC47kDg5OFR_q_-dwYIRu3SktmmaTA1cUVnnbr7spj0HsSNOdHeN_qIromYw5s2638N6V3AnUIM17YCGvVeYcSr1OgSlo-2E"/>
+<div class="absolute top-4 left-4 bg-primary text-on-primary font-label text-[10px] px-3 py-1 tracking-widest">CHIEF CUTTER</div>
+</div>
+<h3 class="font-headline text-2xl mb-4">Elena Vasquez</h3>
+<p class="font-body text-on-surface-variant leading-relaxed">
+                    With over thirty years of experience, Elena specializes in the "Emerald Cut," balancing geometric precision with maximal light return.
+                </p>
+</div>
+<!-- Gem Card 2 (Asymmetric Bleed) -->
+<div class="bg-primary text-on-primary p-8 flex flex-col -translate-y-8 lg:translate-y-8">
+<div class="relative mb-12 overflow-hidden aspect-[3/4] -mr-16">
+<img class="w-full h-full object-cover" data-alt="Close up of a precision gem cutting machine with a bright green emerald being shaped by a diamond grinding wheel" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCS9rkbsf5EmYZ10h8l7cCxE4IuajiQbLecn8yHAEiNSHSwxLpyKZwWFcDf0mtnbKuj3IhVocIAgSnPPj54H7TebN4XPk9eVb-Ou0p4kb86A5plgHfN2EpAvq0fmQaXfsgPx7Qe3YczCLR4bzQ0j8sCdmCinE9Z4aa_jLWDSjA0iUtUqEMzfAEQngi-23s9lju_62gIhGu8d_Ly3B0X7XL-G3HJMckGyKIjCwkcY96IcmBRLcpGgV3uoxgXu-mpIb06wayQgY-3Qpk"/>
+</div>
+<h3 class="font-headline text-2xl mb-4">The Refraction Theory</h3>
+<p class="font-body opacity-90 leading-relaxed">
+                    Our proprietary cutting techniques are designed to amplify the specific chromatic frequency of the Zambian forest green.
+                </p>
+</div>
+<!-- Gem Card 3 -->
+<div class="bg-surface-container-lowest p-8 flex flex-col group">
+<div class="relative mb-12 overflow-hidden aspect-[3/4]">
+<img class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 grayscale" data-alt="Young artisan examining a raw gemstone under a professional jeweler's loupe in a high-tech studio environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5l6QPzBoBWFp09SEgldt8lCIch4zL0A4LY07daAmHZGMZKOpdUd_V85rHiZhyyiBiGCiy_I7aGTODNyo4PSl8Ww3XdjioF0ZEwjoo6nawtYvrT6Y8f7lDV3Ciny9RWuFHzHk_boXxAgW8P2bN6u5uqjvUImxjdI1GDzB-06Nzew1fI83iBHiAxHxUVCCDF_6464DgasbSyIRYd3SyHakVhOFbNLi3qEKLq-_zXJ6adbuA_pm8H5iicAlD9-M-YQZVR56mhaf0bkk"/>
+<div class="absolute top-4 left-4 bg-primary text-on-primary font-label text-[10px] px-3 py-1 tracking-widest">HEAD OF DESIGN</div>
+</div>
+<h3 class="font-headline text-2xl mb-4">Julian Thorne</h3>
+<p class="font-body text-on-surface-variant leading-relaxed">
+                    Julian blends digital modeling with traditional hand-sculpting to create settings that serve the stone's natural form.
+                </p>
+</div>
+</div>
+</section>
+<!-- Our Vision: High Contrast Tonal Recess -->
+<section class="bg-[#121212] text-[#FDF8F5] py-32 px-8 md:px-20 lg:px-40 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/10 to-transparent"></div>
+<div class="max-w-[1200px] mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+<div>
+<p class="font-label text-xs tracking-[0.4em] text-primary uppercase mb-8">Future Legacy</p>
+<h2 class="font-headline text-5xl md:text-6xl mb-12 leading-tight">A Vision for <br/> Sustainable <span class="italic">Opulence.</span></h2>
+<div class="space-y-8 font-body text-lg opacity-80 leading-relaxed">
+<p>We believe true luxury is transparent. Our "Mina-to-Me" initiative ensures every emerald is traceable back to the specific shaft from which it was unearthed.</p>
+<p>Through reforestation programs and educational grants in mining communities, we ensure that for every treasure we take, a legacy of growth is left behind.</p>
+</div>
+<button class="mt-16 bg-primary text-on-primary px-10 py-5 font-label tracking-widest uppercase text-xs hover:bg-primary-container transition-colors rounded-none">Our Ethics Charter</button>
+</div>
+<div class="hidden lg:block relative">
+<div class="border border-[#FDF8F5]/10 p-4">
+<img class="w-full aspect-square object-cover opacity-60 hover:opacity-100 transition-opacity duration-1000" data-alt="Wide landscape view of misty green mountain peaks in a tropical forest at sunrise symbolizing ethical sourcing and nature" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFFynkLYhbeaYSrCgROQstbGwM6cNUpBGlq3p_Y4eepS3D9P4AH2GoLvPt9iT1a57Lds5vlMk6JE53gRbxloNq7NmFyU7vvrC8L4WmDvnYHYj7d3DGo1pGtlFEJlYUBvDZcK5xk15BIMAkcrMbQccaXrpuoEBMZoxOuZ0jATpbvrR_FNw-p2c3IO5Kiq7_bc6F2mQrJH01i4P-xaBsyrrj16vZRq5RGTKkSLxsEQns_jz7yf8cdbkwhTScAGu_pQ2vL1JpcGm3_6Y"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter / Appointment CTA: Soft Recess -->
+<section class="bg-surface-container-high py-32 px-8 text-center">
+<div class="max-w-3xl mx-auto">
+<h3 class="font-headline text-4xl mb-8">Enter The Gallery</h3>
+<p class="font-body text-on-surface-variant mb-12">Join our private list for first access to new acquisitions and bespoke trunk shows.</p>
+<form class="flex flex-col md:flex-row gap-4 items-end">
+<div class="flex-1 w-full text-left">
+<label class="font-label text-[10px] tracking-widest uppercase mb-2 block opacity-60">Email Address</label>
+<input class="w-full bg-transparent border-b border-outline-variant py-3 px-0 focus:outline-none focus:border-primary transition-colors text-on-surface" placeholder="email@example.com" type="email"/>
+</div>
+<button class="font-label text-xs tracking-widest uppercase py-4 px-12 bg-on-surface text-background hover:bg-primary transition-colors duration-300" type="submit">Subscribe</button>
+</form>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#ECE7E4] dark:bg-[#121110] w-full py-16 border-t border-[#1C1B1A]/5">
+<div class="flex flex-col items-center gap-8 px-8 w-full">
+<div class="flex flex-col items-center">
+<span class="text-2xl font-headline tracking-[0.2em] uppercase text-[#1C1B1A] dark:text-[#FDF8F5] font-light leading-tight">MAVA</span>
+<span class="text-[12px] font-headline tracking-[0.4em] uppercase text-[#1C1B1A] dark:text-[#FDF8F5] font-light -mt-1">GEMS</span>
+</div>
+<div class="flex flex-wrap justify-center gap-12 mt-4">
+<a class="font-label uppercase tracking-[0.05rem] text-[10px] text-[#1C1B1A]/50 dark:text-[#FDF8F5]/40 hover:text-[#1C1B1A] dark:hover:text-[#FDF8F5] transition-opacity" href="#">Sustainability</a>
+<a class="font-label uppercase tracking-[0.05rem] text-[10px] text-[#1C1B1A]/50 dark:text-[#FDF8F5]/40 hover:text-[#1C1B1A] dark:hover:text-[#FDF8F5] transition-opacity" href="#">Ethical Sourcing</a>
+<a class="font-label uppercase tracking-[0.05rem] text-[10px] text-[#1C1B1A]/50 dark:text-[#FDF8F5]/40 hover:text-[#1C1B1A] dark:hover:text-[#FDF8F5] transition-opacity" href="#">Legal</a>
+<a class="font-label uppercase tracking-[0.05rem] text-[10px] text-[#1C1B1A]/50 dark:text-[#FDF8F5]/40 hover:text-[#1C1B1A] dark:hover:text-[#FDF8F5] transition-opacity" href="#">Press</a>
+</div>
+<div class="flex gap-6 mt-4">
+<span class="material-symbols-outlined text-primary text-xl cursor-pointer hover:scale-110 transition-transform">public</span>
+<span class="material-symbols-outlined text-primary text-xl cursor-pointer hover:scale-110 transition-transform">camera</span>
+<span class="material-symbols-outlined text-primary text-xl cursor-pointer hover:scale-110 transition-transform">mail</span>
+</div>
+<p class="font-label uppercase tracking-[0.05rem] text-[10px] text-[#1C1B1A]/30 mt-8">© 2026 MAVA GEMS. ALL RIGHTS RESERVED.</p>
+</div>
+</footer>
+<script>
+    // Toggle sidebar
+    document.getElementById('menu-btn').onclick = function() {
+        document.getElementById('side-nav').classList.remove('-translate-x-full');
+    };
+
+    // Scroll Transition Logic (Header/Logo)
+    window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+        const scrollThreshold = 150;
+        const body = document.body;
+        const logoContainer = document.getElementById('nav-logo-container');
+        
+        // Progress from 0 to 1 based on threshold
+        let progress = Math.min(scrollY / scrollThreshold, 1);
+        
+        // Calculate scale from 1.5 to 1.0
+        let currentScale = 1.2 - (progress * 0.2);
+        
+        // Apply transform
+        if (logoContainer) {
+            logoContainer.style.transform = `translateX(-50%) scale(${currentScale})`;
+        }
+        
+        if (scrollY > 50) {
+            body.classList.add('scrolled');
+        } else {
+            body.classList.remove('scrolled');
+        }
+    });
+</script>
+</body></html>
