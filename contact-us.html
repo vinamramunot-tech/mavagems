@@ -109,7 +109,7 @@
 <div class="lg:w-[40%] lg:sticky lg:top-40">
 <h2 class="font-headline text-4xl mb-6 text-primary-dark">Concierge Request</h2>
 <p class="font-body text-secondary/70 leading-relaxed mb-12">
-                Please provide your professional details and the nature of your request. A MAVA Gems representative will contact you within 24 hours.
+                Please provide your professional details and the nature of your request. A MAVA Gems representative will contact you within 24-48 hours.
             </p>
 <div class="space-y-8">
 <div class="border-l-2 border-primary pl-6">
@@ -123,29 +123,29 @@
 </div>
 </div>
 <div class="lg:w-[60%] bg-surface border border-primary/10 shadow-xl p-8 md:p-16 rounded-xl">
-<form class="space-y-12">
+<form action="mailto:connect@mavagems.com" method="post" enctype="text/plain" class="space-y-12">
 <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
 <div class="relative group">
-<input class="w-full bg-transparent border-t-0 border-x-0 border-b-2 border-primary/20 py-4 font-body text-secondary focus:border-primary peer transition-all" id="full_name" placeholder=" " required="" type="text"/>
+<input name="Full Name" class="w-full bg-transparent border-t-0 border-x-0 border-b-2 border-primary/20 py-4 font-body text-secondary focus:border-primary peer transition-all" id="full_name" placeholder=" " required="" type="text"/>
 <label class="absolute left-0 top-4 font-label text-[10px] uppercase tracking-widest text-secondary/50 transition-all peer-focus:-top-4 peer-focus:text-primary peer-focus:font-bold peer-[:not(:placeholder-shown)]:-top-4" for="full_name">Full Name</label>
 </div>
 <div class="relative group">
-<input class="w-full bg-transparent border-t-0 border-x-0 border-b-2 border-primary/20 py-4 font-body text-secondary focus:border-primary peer transition-all" id="email" placeholder=" " required="" type="email"/>
+<input name="Work Email" class="w-full bg-transparent border-t-0 border-x-0 border-b-2 border-primary/20 py-4 font-body text-secondary focus:border-primary peer transition-all" id="email" placeholder=" " required="" type="email"/>
 <label class="absolute left-0 top-4 font-label text-[10px] uppercase tracking-widest text-secondary/50 transition-all peer-focus:-top-4 peer-focus:text-primary peer-focus:font-bold peer-[:not(:placeholder-shown)]:-top-4" for="email">Work Email</label>
 </div>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
 <div class="relative group">
-<input class="w-full bg-transparent border-t-0 border-x-0 border-b-2 border-primary/20 py-4 font-body text-secondary focus:border-primary peer transition-all" id="business_name" placeholder=" " required="" type="text"/>
+<input name="Business Name" class="w-full bg-transparent border-t-0 border-x-0 border-b-2 border-primary/20 py-4 font-body text-secondary focus:border-primary peer transition-all" id="business_name" placeholder=" " required="" type="text"/>
 <label class="absolute left-0 top-4 font-label text-[10px] uppercase tracking-widest text-secondary/50 transition-all peer-focus:-top-4 peer-focus:text-primary peer-focus:font-bold peer-[:not(:placeholder-shown)]:-top-4" for="business_name">Business Name</label>
 </div>
 <div class="relative group">
-<input class="w-full bg-transparent border-t-0 border-x-0 border-b-2 border-primary/20 py-4 font-body text-secondary focus:border-primary peer transition-all" id="subject" placeholder=" " required="" type="text"/>
+<input name="Nature of Inquiry" class="w-full bg-transparent border-t-0 border-x-0 border-b-2 border-primary/20 py-4 font-body text-secondary focus:border-primary peer transition-all" id="subject" placeholder=" " required="" type="text"/>
 <label class="absolute left-0 top-4 font-label text-[10px] uppercase tracking-widest text-secondary/50 transition-all peer-focus:-top-4 peer-focus:text-primary peer-focus:font-bold peer-[:not(:placeholder-shown)]:-top-4" for="subject">Nature of Inquiry</label>
 </div>
 </div>
 <div class="relative group">
-<textarea class="w-full bg-transparent border-t-0 border-x-0 border-b-2 border-primary/20 py-4 font-body text-secondary focus:border-primary peer transition-all resize-none" id="message" placeholder=" " rows="4"></textarea>
+<textarea name="Message" class="w-full bg-transparent border-t-0 border-x-0 border-b-2 border-primary/20 py-4 font-body text-secondary focus:border-primary peer transition-all resize-none" id="message" placeholder=" " rows="4"></textarea>
 <label class="absolute left-0 top-4 font-label text-[10px] uppercase tracking-widest text-secondary/50 transition-all peer-focus:-top-4 peer-focus:text-primary peer-focus:font-bold peer-[:not(:placeholder-shown)]:-top-4" for="message">Specific requirements or stone specifications?</label>
 </div>
 <button class="w-full md:w-auto px-20 py-5 bg-primary-dark text-on-primary font-label text-[10px] uppercase tracking-[0.3em] font-bold transition-all hover:bg-primary active:scale-95 shadow-lg" type="submit">
