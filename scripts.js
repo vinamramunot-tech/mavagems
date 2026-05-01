@@ -100,6 +100,101 @@ document.addEventListener('DOMContentLoaded', () => {
         updateIndicators();
     }
 
+    // --- Contact Form Logic (contact-us.html) ---
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const fullName = document.getElementById('full_name').value;
+            const email = document.getElementById('email').value;
+            const businessName = document.getElementById('business_name').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerText;
+
+            // Change button text to indicate loading
+            submitBtn.innerText = 'Validating...';
+            submitBtn.disabled = true;
+
+            // --- 1. Format Check ---
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert("Please enter a properly formatted email address.");
+                submitBtn.innerText = originalBtnText;
+                submitBtn.disabled = false;
+                return;
+            }
+
+            // --- 2. Existence Check (MX Records) ---
+            const domain = email.split('@')[1];
+            try {
+                // Use Google DNS over HTTPS to check if the domain can actually receive emails
+                const dnsResponse = await fetch(`https://dns.google/resolve?name=${domain}&type=MX`);
+                const dnsData = await dnsResponse.json();
+                
+                if (!dnsData.Answer || dnsData.Answer.length === 0) {
+                    alert(`The domain "@${domain}" does not exist or cannot receive emails. Please enter a valid working email.`);
+                    submitBtn.innerText = originalBtnText;
+                    submitBtn.disabled = false;
+                    return;
+                }
+            } catch (error) {
+                console.warn("Domain verification failed, proceeding with submission...", error);
+            }
+
+            // Proceed to send
+            submitBtn.innerText = 'Sending...';
+
+            // Using Web3Forms for serverless email submission
+            // Note: You will need to replace 'YOUR_ACCESS_KEY_HERE' with a real key from web3forms.com
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    access_key: '89b8d2d1-56c0-4a5b-aba0-829b6a58423c', // <-- GET YOUR FREE KEY AT web3forms.com
+                    name: fullName,
+                    email: email,
+                    business: businessName,
+                    subject: `MAVA Gems Inquiry: ${subject}`,
+                    message: message,
+                })
+            })
+            .then(async (response) => {
+                let json = await response.json();
+                if (response.status == 200) {
+                    submitBtn.innerText = 'Message Sent!';
+                    contactForm.reset();
+                    setTimeout(() => {
+                        submitBtn.innerText = originalBtnText;
+                        submitBtn.disabled = false;
+                    }, 3000);
+                } else {
+                    console.log(response);
+                    submitBtn.innerText = 'Error Sending';
+                    setTimeout(() => {
+                        submitBtn.innerText = originalBtnText;
+                        submitBtn.disabled = false;
+                    }, 3000);
+                    alert("Something went wrong! Please try again later.");
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                submitBtn.innerText = 'Error Sending';
+                setTimeout(() => {
+                    submitBtn.innerText = originalBtnText;
+                    submitBtn.disabled = false;
+                }, 3000);
+                alert("Something went wrong! Please check your internet connection.");
+            });
+        });
+    }
+
 });
 
 // --- Timeline Toggle Function (index.html) ---
