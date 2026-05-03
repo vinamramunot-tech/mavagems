@@ -89,10 +89,14 @@
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
                     <!-- Sawing Process -->
                     <div class="md:col-span-7 group">
-                        <div class="relative overflow-hidden aspect-square lg:aspect-video mb-8">
-                            <img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
+<div class="relative overflow-hidden aspect-square lg:aspect-video mb-8 cursor-pointer" onclick="this.querySelector('img').classList.toggle('grayscale')">
+                            <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000"
                                 data-alt="Macro view of a master cutter using a precise diamond saw to cut through a large rough emerald with sparks and water cooling"
                                 src="/images/emerald rough sawing.JPG" />
+                            <div class="absolute top-6 left-6 md:top-8 md:left-8 bg-white/10 backdrop-blur-md border border-white/20 text-white px-5 py-2 rounded-full flex items-center gap-2 opacity-80 group-hover:opacity-0 transition-opacity duration-700 pointer-events-none shadow-lg z-10">
+                                <span class="material-symbols-outlined text-[16px] animate-pulse">touch_app</span>
+                                <span class="font-label text-[10px] tracking-[0.2em] uppercase">Reveal</span>
+                            </div>
                             <div
                                 class="absolute bottom-4 left-4 right-4 lg:left-auto lg:bottom-6 lg:right-6 bg-surface-container-lowest/90 backdrop-blur p-6 lg:max-w-xs">
                                 <span class="font-label text-[10px] tracking-[0.1em] text-primary mb-2 block">Phase
