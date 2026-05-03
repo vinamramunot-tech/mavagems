@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Hero Video Playback Speed ---
     const indexHeroVideo = document.getElementById('indexHeroVideo');
     if (indexHeroVideo) {
-        indexHeroVideo.playbackRate = 0.75;
+        indexHeroVideo.playbackRate = 0.60;
     }
 
     // --- Navigation Drawer / Sidebar Toggle ---
