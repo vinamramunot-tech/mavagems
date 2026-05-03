@@ -23,8 +23,12 @@
                 MAVA Gems translates raw earth into faceted perfection. Our master cutters and gemologists provide a bespoke bridge between the mine and the most prestigious jewelry houses.
             </p>
 </div>
-<div class="md:w-1/2 w-full aspect-[4/5] md:aspect-[3/4] overflow-hidden rounded-lg shadow-2xl">
-<img alt="Fire and Brilliance passing through an emerald" class="w-full h-full object-cover scale-140 grayscale brightness-110 hover:grayscale-0 transition-all duration-1000" src="/images/emerald through light.JPG"/>
+<div class="relative group md:w-1/2 w-full aspect-[4/5] md:aspect-[3/4] overflow-hidden rounded-lg shadow-2xl cursor-pointer" onclick="this.querySelector('img').classList.toggle('grayscale')">
+<img alt="Fire and Brilliance passing through an emerald" class="w-full h-full object-cover scale-140 grayscale brightness-110 group-hover:grayscale-0 transition-all duration-1000" src="/images/emerald through light.JPG"/>
+<div class="absolute bottom-6 left-1/2 -translate-x-1/2 md:bottom-8 md:left-8 md:translate-x-0 bg-white/10 backdrop-blur-md border border-white/20 text-white px-5 py-2 rounded-full flex items-center gap-2 opacity-80 group-hover:opacity-0 transition-opacity duration-700 pointer-events-none shadow-lg">
+<span class="material-symbols-outlined text-[16px] animate-pulse">touch_app</span>
+<span class="font-label text-[10px] tracking-[0.2em] uppercase">Reveal</span>
+</div>
 </div>
 </section>
 <!-- Service Options Bento -->
