@@ -1,5 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    // --- Hero Video Playback Speed ---
+    const indexHeroVideo = document.getElementById('indexHeroVideo');
+    if (indexHeroVideo) {
+        indexHeroVideo.playbackRate = 0.75;
+    }
+
     // --- Navigation Drawer / Sidebar Toggle ---
     const menuBtn = document.getElementById('menu-btn');
     const closeNavBtn = document.getElementById('close-nav-btn'); // For contact-us overlay nav
@@ -226,3 +232,6 @@ window.showTimeline = function(year, btn) {
     // Smooth scroll the button into view in its container
     btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
 };
+
+
+
