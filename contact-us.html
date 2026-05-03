@@ -10,48 +10,9 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body class="bg-background text-secondary font-body selection:bg-primary-container selection:text-on-primary-container">
-<header class="fixed top-0 w-full z-50 transition-all duration-500 bg-white/60 backdrop-blur-md border-b border-black/5 shadow-sm" id="header-nav">
-<nav class="flex items-center justify-between px-8 py-6 w-full max-w-none relative">
-<!-- Hamburger Menu -->
-<div class="flex items-center gap-6">
-<button class="text-on-surface hover:text-primary transition-colors scale-95 active:duration-150 text-black" id="menu-btn">
-<span class="material-symbols-outlined transition-colors duration-600 !text-[24px]" data-icon="menu" id="menu-icon">menu</span>
-</button>
-</div>
-<!-- Centered Logo Lockup -->
-<a href="index.html" class="absolute left-1/2 -translate-x-1/2 flex flex-col items-center" id="nav-logo-container" style="transform: translateX(-50%) scale(1.2);">
-<span class="text-xl md:text-2xl font-headline tracking-[0.2em] uppercase font-light leading-tight text-black" id="nav-logo-mava">MAVA</span>
-<span class="text-[10px] md:text-[12px] font-headline tracking-[0.4em] uppercase font-light -mt-1 text-black/70" id="nav-logo-gems">GEMS</span>
-</a>
-<!-- Right side empty for symmetry -->
-<div class="w-10"></div>
-</nav>
-</header>
-<!-- Side Navigation Drawer -->
-<div class="fixed inset-0 z-[60] pointer-events-none" id="nav-overlay">
-<div class="fixed inset-0 bg-black/20 backdrop-blur-sm opacity-0 transition-opacity duration-500 pointer-events-none" id="overlay-bg"></div>
-<div class="fixed inset-y-0 left-0 flex flex-col p-10 bg-[#FDF8F5] dark:bg-[#1C1B1A] h-full w-[320px] border-r border-[#ECE7E4]/20 shadow-2xl transition-transform -translate-x-full pointer-events-auto" id="nav-drawer">
-<div class="flex justify-between items-center mb-20">
-<a href="index.html" class="font-headline text-xl tracking-widest text-on-surface hover:text-primary transition-colors cursor-pointer">MAVA GEMS</a>
-<button class="text-on-surface" id="close-nav-btn">
-<span class="material-symbols-outlined" data-icon="close">close</span>
-</button>
-</div>
-<div class="space-y-12">
-<div>
-<nav class="flex flex-col gap-6">
-<a class="font-label uppercase tracking-[0.1rem] text-sm text-[#1C1B1A]/60 hover:text-[#006D43] transition-colors" href="manufacturing.html">Manufacturing</a>
-<a class="font-label uppercase tracking-[0.1rem] text-sm text-[#1C1B1A]/60 hover:text-[#006D43] transition-colors" href="about-us.html">About Us</a>
-<a class="font-label uppercase tracking-[0.1rem] text-sm text-[#006D43] font-bold" href="contact-us.html">Contact Us</a>
-</nav>
-</div>
+<!-- Web Component Header -->
+<mava-header></mava-header>
 
-</div>
-<div class="mt-auto">
-<p class="font-headline text-sm italic text-on-surface/40">Exquisite Zambian Emeralds</p>
-</div>
-</div>
-</div>
 <main class="pt-32">
 <!-- Hero Section -->
 <section class="px-12 py-24 md:py-40 max-w-screen-2xl mx-auto flex flex-col md:flex-row items-center gap-16">
@@ -167,6 +128,7 @@
 </main>
 <!-- Footer -->
 <mava-footer></mava-footer>
+<script src="header.js"></script>
 <script src="footer.js"></script>
 <script src="scripts.js"></script>
 </body></html>
