@@ -16,6 +16,20 @@
     -webkit-backdrop-filter: blur(12px);
 }
 
+/* Prevent FOUC: lock header position before Tailwind processes its classes */
+mava-header {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    pointer-events: none;
+}
+mava-header > * {
+    pointer-events: auto;
+}
+
 /* Header & Nav */
 #header-nav {
     transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), backdrop-filter 0.5s ease;
