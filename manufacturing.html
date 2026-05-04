@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Manufacturing | MAVA GEMS</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&amp;family=Inter:wght@100..900&amp;family=Manrope:wght@200..800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="tailwind-config.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="header.js"></script>
+</head>
+
+<body
+    class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+    <!-- Web Component Header -->
+    <mava-header></mava-header>
+
+    <main class="pt-24 overflow-x-hidden">
+        <!-- Hero Section -->
+        <section class="relative flex flex-col justify-center px-8 md:px-20 lg:px-40 py-8 md:py-16 overflow-x-hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Image column (first in DOM = first on mobile) -->
+                <div class="lg:col-span-7 lg:order-2 relative">
+                    <div class="overflow-hidden rounded-sm transform lg:translate-x-20">
+                        <img class="w-full h-auto object-contain" alt="Fancy shape emerald manufacturing"
+                            src="/images/hexagon shape.jpg" />
+                    </div>
+                    <div class="absolute -bottom-12 -left-12 hidden lg:block w-64 h-64 bg-surface-container-low -z-10">
+                    </div>
+                </div>
+                <!-- Text column (second in DOM = second on mobile) -->
+                <div class="lg:col-span-5 lg:order-1 z-10 space-y-6">
+                    <span class="font-label text-sm tracking-[0.3em] text-primary uppercase block">Legacy of the
+                        Earth</span>
+                    <h1
+                        class="font-headline text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight text-on-surface leading-tight">
+                        The Genesis of <br /><span class="italic">Brilliance</span>
+                    </h1>
+                    <p class="font-body text-lg text-on-surface-variant max-w-md leading-relaxed">
+                        Journey through the vertical integration of MAVA Gems, where geological marvels are transformed
+                        into enduring legacies through ethical stewardship and master artistry.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <!-- Sourcing Innovation -->
+        <section class="py-16 bg-surface">
+            <div class="max-w-[1920px] mx-auto px-8 md:px-20 grid md:grid-cols-12 gap-16 items-center">
+                <div class="md:col-span-5 relative">
+                    <div class="aspect-[4/5] overflow-hidden rounded-sm">
+                        <img class="w-full h-full object-cover object-[62%_center]"
+                            alt="Close-up of raw green emerald crystals embedded in dark host rock being carefully inspected with a magnifying loupe"
+                            src="/images/Kagem Tour.JPG" />
+                    </div>
+                    <div
+                        class="absolute -bottom-8 -right-8 w-64 h-80 bg-surface-container-low hidden lg:block -z-10 translate-y-12">
+                    </div>
+                </div>
+                <div class="md:col-span-7 md:pl-12">
+                    <span class="font-label text-[10px] tracking-[0.2em] text-primary uppercase mb-4 block">Sourcing
+                        Innovation</span>
+                    <h2 class="font-headline text-4xl md:text-6xl font-light mb-8 text-on-surface">Direct-to-Mine
+                        Transparency</h2>
+                    <div class="space-y-6 text-on-surface-variant text-lg max-w-2xl leading-relaxed">
+                        <p>Our commitment begins at the source. By maintaining direct ownership and exclusive
+                            partnerships with <b>GEMFIELDS</b> and <b>GRIZZLY</b> MINES in Zambia, we ensure every
+                            emerald's journey is
+                            documented.</p>
+                        <!-- <p>We leverage blockchain technology to track each gemstone from the moment of extraction to its
+                            final setting, providing an unbroken chain of custody that honors both the earth and the
+                            hands that harvest its treasures.</p> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- The Art of the Cut: Asymmetric Layout -->
+        <section class="py-16 bg-surface-container-low overflow-hidden">
+            <div class="max-w-[1920px] mx-auto px-8 md:px-20">
+                <div class="text-center mb-24 max-w-3xl mx-auto">
+                    <span
+                        class="font-label text-[10px] tracking-[0.2em] text-primary uppercase mb-4 block">Craftsmanship</span>
+                    <h2 class="font-headline text-4xl md:text-7xl font-light text-on-surface">The Art of the Cut</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+                    <!-- Sawing Process -->
+                    <div class="md:col-span-7 group">
+                        <div class="relative overflow-hidden aspect-square lg:aspect-video mb-8 cursor-pointer"
+                            onclick="this.querySelector('img').classList.toggle('grayscale')">
+                            <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000"
+                                alt="Macro view of a master cutter using a precise diamond saw to cut through a large rough emerald with sparks and water cooling"
+                                src="/images/emerald rough sawing.JPG" />
+                            <div
+                                class="absolute top-6 left-6 md:top-8 md:left-8 bg-white/10 backdrop-blur-md border border-white/20 text-white px-5 py-2 rounded-full flex items-center gap-2 opacity-80 group-hover:opacity-0 transition-opacity duration-700 pointer-events-none shadow-lg z-10">
+                                <span class="material-symbols-outlined text-[16px] animate-pulse">touch_app</span>
+                                <span class="font-label text-[10px] tracking-[0.2em] uppercase">Reveal</span>
+                            </div>
+                            <div
+                                class="absolute bottom-4 left-4 right-4 lg:left-auto lg:bottom-6 lg:right-6 bg-surface-container-lowest/90 backdrop-blur p-6 lg:max-w-xs">
+                                <span class="font-label text-[10px] tracking-[0.1em] text-primary mb-2 block">Phase
+                                    I</span>
+                                <h3 class="font-headline text-xl mb-2">The Strategic Cleave</h3>
+                                <p class="font-body text-sm text-on-surface-variant">The first cut defines the soul of
+                                    the gem. Our lapidaries spend weeks analyzing the Jardin before the blade touches
+                                    the rough.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Assorting Process -->
+                    <div class="md:col-span-5 mt-20">
+                        <div class="bg-surface-container-lowest p-12 relative">
+                            <div class="aspect-square mb-10">
+                                <img class="w-full h-full object-cover"
+                                    alt="Overhead shot of a white tray filled with hundreds of small polished emeralds being sorted by color and clarity with tweezers"
+                                    src="/images/grading.JPG" />
+                            </div>
+                            <span class="font-label text-[10px] tracking-[0.1em] text-primary mb-2 block">Phase
+                                II</span>
+                            <h3 class="font-headline text-3xl mb-6">Master Assorting</h3>
+                            <p class="font-body text-on-surface-variant leading-relaxed mb-8">
+                                Only 3% of extracted emeralds meet the MAVA Standard. Our assortment process categorizes
+                                gems by saturation, tone, and the unique internal characteristics that define their
+                                identity.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Global Standards & Certifications -->
+        <section class="py-16 bg-surface">
+            <div class="max-w-[1920px] mx-auto px-8 md:px-20">
+                <div class="grid md:grid-cols-2 gap-20 items-center">
+                    <div>
+                        <span
+                            class="font-label text-[10px] tracking-[0.2em] text-primary uppercase mb-4 block">Verification</span>
+                        <h2 class="font-headline text-4xl md:text-6xl font-light text-on-surface mb-8 leading-tight">
+                            Upholding Global Excellence</h2>
+                        <p class="text-lg text-on-surface-variant mb-12 max-w-lg">Every MAVA Gem is accompanied by a
+                            dossier of authenticity from the world’s most prestigious independent laboratories.</p>
+                        <div class="grid grid-cols-2 gap-8 border-t border-outline-variant/30 pt-12">
+                            <div>
+                                <h4 class="font-label text-[11px] tracking-widest text-primary mb-4 uppercase">Gubelin
+                                </h4>
+                                <p class="text-sm text-on-surface-variant">Gubelin certification for origin and natural
+                                    treatment disclosure.</p>
+                            </div>
+                            <!-- <div>
+<h4 class="font-label text-[11px] tracking-widest text-primary mb-4 uppercase">Swiss Gemmological Institute</h4>
+<p class="text-sm text-on-surface-variant">SSEF certification for origin and natural treatment disclosure.</p>
+</div> -->
+                        </div>
+                    </div>
+                    <div class="bg-surface-container-high p-16 flex flex-col items-center text-center">
+                        <div
+                            class="w-24 h-24 mb-8 flex items-center justify-center rounded-full border border-primary/20">
+                            <span class="material-symbols-outlined text-4xl text-primary"
+                                data-icon="verified">verified</span>
+                        </div>
+                        <h3 class="font-headline text-3xl mb-4">Certified Inquiry</h3>
+                        <p class="font-body text-on-surface-variant mb-10 max-w-xs">Interested in a specific cut or
+                            sourcing a bespoke rough? Our consultants are available for global inquiries.</p>
+                        <a class="px-12 py-4 bg-primary text-on-primary font-label text-xs tracking-[0.2em] uppercase rounded-sm hover:opacity-90 transition-all duration-300"
+                            href="contact-us.html">
+                            Explore Collection
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Signature Quote Section -->
+        <section class="py-20 bg-[#002111] text-on-primary overflow-hidden relative">
+            <div
+                class="absolute top-0 right-0 w-1/3 h-full bg-[#006D43] opacity-20 transform translate-x-1/2 -skew-x-12">
+            </div>
+            <div class="max-w-[1920px] mx-auto px-8 md:px-20 relative z-10">
+                <div class="max-w-4xl mx-auto text-center">
+                    <span class="material-symbols-outlined text-primary-fixed-dim text-6xl mb-12"
+                        data-icon="format_quote">format_quote</span>
+                    <h2 class="font-headline text-3xl md:text-5xl italic font-extralight leading-relaxed mb-12">
+                        "Nature provides the stone, but the artisan provides the soul. Our manufacturing and assorting
+                        is not a
+                        factory; it is a laboratory of beauty."
+                    </h2>
+                    <p class="font-label tracking-[0.3em] text-primary-fixed-dim text-sm uppercase">Gautam Chand Munot —
+                        Founder</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <mava-footer></mava-footer>
+    <script src="footer.js"></script>
+    <script src="scripts.js"></script>
+</body>
+
+</html>
