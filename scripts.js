@@ -8,10 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Navigation Drawer / Sidebar Toggle ---
     const menuBtn = document.getElementById('menu-btn');
-    const closeNavBtn = document.getElementById('close-nav-btn'); // For contact-us overlay nav
-    const closeMenuBtn = document.getElementById('close-menu-btn'); // For manufacturing side nav
-    const navDrawer = document.getElementById('nav-drawer'); // For contact-us overlay nav
-    const sideNav = document.getElementById('side-nav'); // For standard side nav
+    const closeMenuBtn = document.getElementById('close-menu-btn');
+    const navDrawer = document.getElementById('nav-drawer');
     const navOverlay = document.getElementById('nav-overlay');
     const overlayBg = document.getElementById('overlay-bg');
 
@@ -25,9 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 overlayBg.classList.remove('pointer-events-none');
             }
         }
-        if (sideNav) {
-            sideNav.classList.remove('-translate-x-full');
-        }
     }
 
     function closeNav() {
@@ -40,29 +35,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             if (navOverlay) navOverlay.classList.add('pointer-events-none');
         }
-        if (sideNav) {
-            sideNav.classList.add('-translate-x-full');
-        }
     }
 
-    if (menuBtn) {
-        menuBtn.addEventListener('click', openNav);
-    }
-    
-    if (closeNavBtn) closeNavBtn.addEventListener('click', closeNav);
+    if (menuBtn) menuBtn.addEventListener('click', openNav);
     if (closeMenuBtn) closeMenuBtn.addEventListener('click', closeNav);
     if (overlayBg) overlayBg.addEventListener('click', closeNav);
-
-    // Some pages might just have a simple button that toggles classes manually inline,
-    // but the above covers all patterns used in the pages.
-    // If the close button inside side-nav doesn't have an ID (like in index.html and about-us.html),
-    // we attach listener to it dynamically:
-    if (sideNav) {
-        const simpleCloseBtn = sideNav.querySelector('button');
-        if (simpleCloseBtn && !simpleCloseBtn.id) {
-            simpleCloseBtn.addEventListener('click', closeNav);
-        }
-    }
 
 
     // --- Scroll Transition Logic (Header/Logo/Menu Colors) ---
