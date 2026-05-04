@@ -20,7 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
             navDrawer.classList.add('open');
             navDrawer.classList.remove('-translate-x-full');
             if (navOverlay) navOverlay.classList.remove('pointer-events-none');
-            if (overlayBg) overlayBg.classList.add('opacity-100');
+            if (overlayBg) {
+                overlayBg.classList.add('opacity-100');
+                overlayBg.classList.remove('pointer-events-none');
+            }
         }
         if (sideNav) {
             sideNav.classList.remove('-translate-x-full');
@@ -31,7 +34,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (navDrawer) {
             navDrawer.classList.remove('open');
             navDrawer.classList.add('-translate-x-full');
-            if (overlayBg) overlayBg.classList.remove('opacity-100');
+            if (overlayBg) {
+                overlayBg.classList.remove('opacity-100');
+                overlayBg.classList.add('pointer-events-none');
+            }
             if (navOverlay) navOverlay.classList.add('pointer-events-none');
         }
         if (sideNav) {

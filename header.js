@@ -35,25 +35,30 @@ class MavaHeader extends HTMLElement {
         </nav>
     </header>
 
-    <!-- SideNavBar -->
-    <div class="fixed inset-y-0 left-0 z-[60] flex flex-col p-10 bg-[#FDF8F5] dark:bg-[#1C1B1A] h-full w-[320px] border-r border-[#ECE7E4]/20 shadow-2xl transition-transform -translate-x-full" id="side-nav">
-        <div class="flex justify-between items-center mb-20">
-            <a href="index.html" class="font-headline text-xl tracking-widest text-[#1C1B1A] dark:text-[#FDF8F5] hover:text-primary transition-colors cursor-pointer">MAVA GEMS</a>
-            <button class="text-[#1C1B1A] dark:text-[#FDF8F5]" id="close-menu-btn">
-                <span class="material-symbols-outlined" data-icon="close">close</span>
-            </button>
-        </div>
-        <div class="space-y-12">
-            <div>
-                <nav class="flex flex-col gap-6">
-                    <a class="${getNavLinkClass(isMfg)}" href="manufacturing.html">Manufacturing</a>
-                    <a class="${getNavLinkClass(isAbout)}" href="about-us.html">About Us</a>
-                    <a class="${getNavLinkClass(isContact)}" href="contact-us.html">Contact Us</a>
-                </nav>
+    <!-- Side Navigation Drawer & Overlay -->
+    <div class="fixed inset-0 z-[60] pointer-events-none" id="nav-overlay">
+        <!-- Clickable background overlay -->
+        <div class="fixed inset-0 bg-black/20 backdrop-blur-sm opacity-0 transition-opacity duration-500 pointer-events-none" id="overlay-bg"></div>
+        
+        <div class="fixed inset-y-0 left-0 flex flex-col p-10 bg-[#FDF8F5] dark:bg-[#1C1B1A] h-full w-[320px] border-r border-[#ECE7E4]/20 shadow-2xl transition-transform -translate-x-full pointer-events-auto" id="nav-drawer">
+            <div class="flex justify-between items-center mb-20">
+                <a href="index.html" class="font-headline text-xl tracking-widest text-[#1C1B1A] dark:text-[#FDF8F5] hover:text-primary transition-colors cursor-pointer">MAVA GEMS</a>
+                <button class="text-[#1C1B1A] dark:text-[#FDF8F5]" id="close-menu-btn">
+                    <span class="material-symbols-outlined" data-icon="close">close</span>
+                </button>
             </div>
-        </div>
-        <div class="mt-auto">
-            <p class="font-headline text-sm italic text-[#1C1B1A]/40 dark:text-[#FDF8F5]/40">Exquisite Zambian Emeralds</p>
+            <div class="space-y-12">
+                <div>
+                    <nav class="flex flex-col gap-6">
+                        <a class="${getNavLinkClass(isMfg)}" href="manufacturing.html">Manufacturing</a>
+                        <a class="${getNavLinkClass(isAbout)}" href="about-us.html">About Us</a>
+                        <a class="${getNavLinkClass(isContact)}" href="contact-us.html">Contact Us</a>
+                    </nav>
+                </div>
+            </div>
+            <div class="mt-auto">
+                <p class="font-headline text-sm italic text-[#1C1B1A]/40 dark:text-[#FDF8F5]/40">Exquisite Zambian Emeralds</p>
+            </div>
         </div>
     </div>
         `;
