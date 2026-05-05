@@ -6,10 +6,10 @@ class MavaHeader extends HTMLElement {
         const textOpacityClass = isLight ? 'text-white/70' : 'text-on-surface/70';
         
         // Handle active navigation link dynamically
-        const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-        const isMfg = currentPath === 'manufacturing.html';
-        const isAbout = currentPath === 'about-us.html';
-        const isContact = currentPath === 'contact-us.html';
+        const currentPath = window.location.pathname.split('/').pop() || '';
+        const isMfg = currentPath === 'manufacturing.html' || currentPath === 'manufacturing';
+        const isAbout = currentPath === 'about-us.html' || currentPath === 'about-us';
+        const isContact = currentPath === 'contact-us.html' || currentPath === 'contact-us';
 
         const getNavLinkClass = (isActive) => {
             return isActive 
@@ -27,7 +27,7 @@ class MavaHeader extends HTMLElement {
                 </button>
             </div>
             <!-- Centered Logo with Scroll Animation -->
-            <a href="index.html" class="absolute left-1/2 -translate-x-1/2 flex flex-col items-center" id="nav-logo-container" style="transform: translateX(-50%) scale(1.2);">
+            <a href="/" class="absolute left-1/2 -translate-x-1/2 flex flex-col items-center" id="nav-logo-container" style="transform: translateX(-50%) scale(1.2);">
                 <span class="text-xl md:text-2xl font-headline tracking-[0.2em] uppercase font-light leading-tight ${textColorClass}" id="nav-logo-mava">MAVA</span>
                 <span class="text-[10px] md:text-[12px] font-headline tracking-[0.4em] uppercase font-light -mt-1 ${textOpacityClass}" id="nav-logo-gems">GEMS</span>
             </a>
@@ -42,7 +42,7 @@ class MavaHeader extends HTMLElement {
         
         <div class="fixed inset-y-0 left-0 flex flex-col p-10 bg-[#FDF8F5] dark:bg-[#1C1B1A] h-full w-[320px] border-r border-[#ECE7E4]/20 shadow-2xl transition-transform -translate-x-full pointer-events-auto" id="nav-drawer">
             <div class="flex justify-between items-center mb-20">
-                <a href="index.html" class="font-headline text-xl tracking-widest text-[#1C1B1A] dark:text-[#FDF8F5] hover:text-primary transition-colors cursor-pointer">MAVA GEMS</a>
+                <a href="/" class="font-headline text-xl tracking-widest text-[#1C1B1A] dark:text-[#FDF8F5] hover:text-primary transition-colors cursor-pointer">MAVA GEMS</a>
                 <button class="text-[#1C1B1A] dark:text-[#FDF8F5]" id="close-menu-btn">
                     <span class="material-symbols-outlined" data-icon="close">close</span>
                 </button>
@@ -50,9 +50,9 @@ class MavaHeader extends HTMLElement {
             <div class="space-y-12">
                 <div>
                     <nav class="flex flex-col gap-6">
-                        <a class="${getNavLinkClass(isMfg)}" href="manufacturing.html">Manufacturing</a>
-                        <a class="${getNavLinkClass(isAbout)}" href="about-us.html">About Us</a>
-                        <a class="${getNavLinkClass(isContact)}" href="contact-us.html">Contact Us</a>
+                        <a class="${getNavLinkClass(isMfg)}" href="/manufacturing">Manufacturing</a>
+                        <a class="${getNavLinkClass(isAbout)}" href="/about-us">About Us</a>
+                        <a class="${getNavLinkClass(isContact)}" href="/contact-us">Contact Us</a>
                     </nav>
                 </div>
             </div>
