@@ -225,46 +225,7 @@
                         <!-- Scrollable Years List -->
                         <div class="flex md:flex-col overflow-x-auto md:overflow-y-auto hide-scrollbar snap-x md:snap-y snap-mandatory border-b md:border-b-0 md:border-r border-outline-variant/30 w-full max-h-[400px] pb-2 md:pb-0 scroll-smooth relative"
                             id="years-scroll-container">
-                            <button
-                                class="year-btn active snap-center shrink-0 w-auto md:w-full text-center md:text-left font-headline text-3xl md:text-5xl tracking-tight transition-all py-4 px-6 md:pr-12 md:pl-0 focus:outline-none whitespace-nowrap"
-                                onclick="showTimeline('1982', this)">
-                                1982
-                            </button>
-                            <button
-                                class="year-btn snap-center shrink-0 w-auto md:w-full text-center md:text-left font-headline text-3xl md:text-5xl tracking-tight text-on-surface/30 hover:text-primary transition-all py-4 px-6 md:pr-12 md:pl-0 focus:outline-none whitespace-nowrap"
-                                onclick="showTimeline('1996', this)">
-                                1996
-                            </button>
-                            <button
-                                class="year-btn snap-center shrink-0 w-auto md:w-full text-center md:text-left font-headline text-3xl md:text-5xl tracking-tight text-on-surface/30 hover:text-primary transition-all py-4 px-6 md:pr-12 md:pl-0 focus:outline-none whitespace-nowrap"
-                                onclick="showTimeline('2005', this)">
-                                2005
-                            </button>
-                            <button
-                                class="year-btn snap-center shrink-0 w-auto md:w-full text-center md:text-left font-headline text-3xl md:text-5xl tracking-tight text-on-surface/30 hover:text-primary transition-all py-4 px-6 md:pr-12 md:pl-0 focus:outline-none whitespace-nowrap"
-                                onclick="showTimeline('2020', this)">
-                                2020
-                            </button>
-                            <button
-                                class="year-btn snap-center shrink-0 w-auto md:w-full text-center md:text-left font-headline text-3xl md:text-5xl tracking-tight text-on-surface/30 hover:text-primary transition-all py-4 px-6 md:pr-12 md:pl-0 focus:outline-none whitespace-nowrap"
-                                onclick="showTimeline('2021', this)">
-                                2021
-                            </button>
-                            <button
-                                class="year-btn snap-center shrink-0 w-auto md:w-full text-center md:text-left font-headline text-3xl md:text-5xl tracking-tight text-on-surface/30 hover:text-primary transition-all py-4 px-6 md:pr-12 md:pl-0 focus:outline-none whitespace-nowrap"
-                                onclick="showTimeline('2022', this)">
-                                2022
-                            </button>
-                            <button
-                                class="year-btn snap-center shrink-0 w-auto md:w-full text-center md:text-left font-headline text-3xl md:text-5xl tracking-tight text-on-surface/30 hover:text-primary transition-all py-4 px-6 md:pr-12 md:pl-0 focus:outline-none whitespace-nowrap"
-                                onclick="showTimeline('2023', this)">
-                                2023
-                            </button>
-                            <button
-                                class="year-btn snap-center shrink-0 w-auto md:w-full text-center md:text-left font-headline text-3xl md:text-5xl tracking-tight text-on-surface/30 hover:text-primary transition-all py-4 px-6 md:pr-12 md:pl-0 focus:outline-none whitespace-nowrap"
-                                onclick="showTimeline('2024', this)">
-                                2024
-                            </button>
+                            <!-- Timeline buttons are injected dynamically from timeline_data.js -->
                         </div>
                         <!-- Elegant Scroll Down Indicator -->
                         <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-surface-container-high via-surface-container-high/60 to-transparent z-20 pointer-events-none flex items-end justify-center pb-2 opacity-100 transition-opacity duration-500 hidden md:flex"
@@ -274,127 +235,8 @@
                         </div>
                     </div>
                     <!-- Content Panel (Right) -->
-                    <div class="flex-1 relative min-h-[300px]">
-                        <!-- Content 1982 -->
-                        <div class="timeline-content active space-y-8" id="content-1982">
-                            <div class="max-w-2xl">
-                                <h3 class="font-label text-xs font-bold tracking-[0.3em] uppercase text-primary mb-6">
-                                    The First Extraction</h3>
-                                <p
-                                    class="font-headline text-3xl md:text-4xl font-light leading-snug text-on-surface mb-8">
-                                    A discovery that shaped our future in the Muzo district.
-                                </p>
-                                <p class="font-body text-on-surface-variant text-lg leading-relaxed">
-                                    The foundation of MAVA Gems begins in the Muzo district of Colombia, discovering one
-                                    of the most significant emerald veins of the decade.
-                                </p>
-                            </div>
-                        </div>
-                        <!-- Content 1996 -->
-                        <div class="timeline-content hidden space-y-8" id="content-1996">
-                            <div class="max-w-2xl">
-                                <h3 class="font-label text-xs font-bold tracking-[0.3em] uppercase text-primary mb-6">
-                                    Expansion of Operations</h3>
-                                <p
-                                    class="font-headline text-3xl md:text-4xl font-light leading-snug text-on-surface mb-8">
-                                    Broadening our horizons across the global market.
-                                </p>
-                                <p class="font-body text-on-surface-variant text-lg leading-relaxed">
-                                    MAVA Gems expands its reach, establishing new partnerships and securing exclusive
-                                    access to rare Zambian deposits, diversifying our portfolio of fine-cut stones.
-                                </p>
-                            </div>
-                        </div>
-                        <!-- Content 2005 -->
-                        <div class="timeline-content hidden space-y-8" id="content-2005">
-                            <div class="max-w-2xl">
-                                <h3 class="font-label text-xs font-bold tracking-[0.3em] uppercase text-primary mb-6">
-                                    Artisanal Workshop Expansion</h3>
-                                <p
-                                    class="font-headline text-3xl md:text-4xl font-light leading-snug text-on-surface mb-8">
-                                    Mastering the craft from raw stone to brilliant gem.
-                                </p>
-                                <p class="font-body text-on-surface-variant text-lg leading-relaxed">
-                                    Transitioning from raw supply to a full vertically integrated manufacturing house,
-                                    ensuring unparalleled cut quality in our state-of-the-art lapidary center.
-                                </p>
-                            </div>
-                        </div>
-                        <!-- Content 2020 -->
-                        <div class="timeline-content hidden space-y-8" id="content-2020">
-                            <div class="max-w-2xl">
-                                <h3 class="font-label text-xs font-bold tracking-[0.3em] uppercase text-primary mb-6">
-                                    Sustainability Initiative</h3>
-                                <p
-                                    class="font-headline text-3xl md:text-4xl font-light leading-snug text-on-surface mb-8">
-                                    Setting new standards for ethical sourcing.
-                                </p>
-                                <p class="font-body text-on-surface-variant text-lg leading-relaxed">
-                                    We launched our comprehensive 'Emerald Earth' program, ensuring that every stone is
-                                    sourced with the highest regard for environmental and community impact.
-                                </p>
-                            </div>
-                        </div>
-                        <!-- Content 2021 -->
-                        <div class="timeline-content hidden space-y-8" id="content-2021">
-                            <div class="max-w-2xl">
-                                <h3 class="font-label text-xs font-bold tracking-[0.3em] uppercase text-primary mb-6">
-                                    Sourcing Innovation</h3>
-                                <p
-                                    class="font-headline text-3xl md:text-4xl font-light leading-snug text-on-surface mb-8">
-                                    Direct-to-mine transparency redefined.
-                                </p>
-                                <p class="font-body text-on-surface-variant text-lg leading-relaxed">
-                                    Implementation of real-time provenance tracking at the source, allowing our clients
-                                    to trace the journey of their gem from the moment it leaves the earth.
-                                </p>
-                            </div>
-                        </div>
-                        <!-- Content 2022 -->
-                        <div class="timeline-content hidden space-y-8" id="content-2022">
-                            <div class="max-w-2xl">
-                                <h3 class="font-label text-xs font-bold tracking-[0.3em] uppercase text-primary mb-6">
-                                    Bespoke Digital Atelier</h3>
-                                <p
-                                    class="font-headline text-3xl md:text-4xl font-light leading-snug text-on-surface mb-8">
-                                    A virtual gateway to the world's finest emeralds.
-                                </p>
-                                <p class="font-body text-on-surface-variant text-lg leading-relaxed">
-                                    Introduction of our high-definition digital viewing platform, enabling private
-                                    collectors to examine rare stones in microscopic detail from anywhere in the world.
-                                </p>
-                            </div>
-                        </div>
-                        <!-- Content 2023 -->
-                        <div class="timeline-content hidden space-y-8" id="content-2023">
-                            <div class="max-w-2xl">
-                                <h3 class="font-label text-xs font-bold tracking-[0.3em] uppercase text-primary mb-6">
-                                    Digital Transparency</h3>
-                                <p
-                                    class="font-headline text-3xl md:text-4xl font-light leading-snug text-on-surface mb-8">
-                                    Leading the industry with blockchain-backed heritage.
-                                </p>
-                                <p class="font-body text-on-surface-variant text-lg leading-relaxed">
-                                    Launching the world's first blockchain-backed emerald tracking system. Now, every
-                                    MAVA emerald comes with a digital passport securing its unique provenance.
-                                </p>
-                            </div>
-                        </div>
-                        <!-- Content 2024 -->
-                        <div class="timeline-content hidden space-y-8" id="content-2024">
-                            <div class="max-w-2xl">
-                                <h3 class="font-label text-xs font-bold tracking-[0.3em] uppercase text-primary mb-6">
-                                    New Digital Frontiers</h3>
-                                <p
-                                    class="font-headline text-3xl md:text-4xl font-light leading-snug text-on-surface mb-8">
-                                    The future of verdant luxury is here.
-                                </p>
-                                <p class="font-body text-on-surface-variant text-lg leading-relaxed">
-                                    Expanding into immersive VR showrooms and AI-driven curation, MAVA Gems continues to
-                                    define the pinnacle of the modern gemstone experience.
-                                </p>
-                            </div>
-                        </div>
+                    <div class="flex-1 relative min-h-[300px]" id="timeline-content-container">
+                        <!-- Timeline content panels are injected dynamically from timeline_data.js -->
                     </div>
                 </div>
             </div>
@@ -445,6 +287,7 @@
     <!-- Footer -->
     <mava-footer></mava-footer>
     <script src="footer.js"></script>
+    <script src="timeline_data.js"></script>
     <script src="scripts.js"></script>
 </body>
 
