@@ -139,4 +139,25 @@
 <mava-footer></mava-footer>
 <script src="footer.js"></script>
 <script src="scripts.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    const subject = params.get('subject');
+    const message = params.get('message');
+    if (subject) {
+        const subjectInput = document.getElementById('subject');
+        if (subjectInput) {
+            subjectInput.value = subject;
+            subjectInput.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+    }
+    if (message) {
+        const messageInput = document.getElementById('message');
+        if (messageInput) {
+            messageInput.value = message;
+            messageInput.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+    }
+});
+</script>
 </body></html>

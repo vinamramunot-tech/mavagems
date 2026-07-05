@@ -25,16 +25,7 @@
         country="US"
         language="en">
 
-    <!-- Shared Cart -->
-    <shopify-cart id="main-cart">
-        <div slot="empty">
-            <div class="flex flex-col items-center gap-3 py-8 text-on-surface-variant">
-                <span class="material-symbols-outlined text-4xl opacity-30">diamond</span>
-                <p class="font-label text-xs tracking-widest uppercase">Your cart is empty</p>
-            </div>
-        </div>
-        <span slot="checkout-button">Proceed to Checkout</span>
-    </shopify-cart>
+
 
     <!-- Product Detail Modal -->
     <dialog id="product-modal" class="shop-modal">
@@ -64,26 +55,17 @@
                                 <h2 class="shop-modal__title">
                                     <shopify-data query="product.title"></shopify-data>
                                 </h2>
-                                <div class="shop-modal__price">
-                                    <shopify-money query="product.selectedOrFirstAvailableVariant.price"></shopify-money>
-                                </div>
+
                             </div>
 
                             <shopify-variant-selector></shopify-variant-selector>
 
                             <div class="shop-modal__actions">
                                 <button
-                                    class="shop-btn shop-btn--primary"
-                                    onclick="document.getElementById('main-cart').addLine(event).showModal();"
-                                    shopify-attr--disabled="!product.selectedOrFirstAvailableVariant.availableForSale">
-                                    <span class="material-symbols-outlined text-base">shopping_bag</span>
-                                    Add to Cart
-                                </button>
-                                <button
-                                    class="shop-btn shop-btn--secondary"
-                                    onclick="document.querySelector('shopify-store').buyNow(event)"
-                                    shopify-attr--disabled="!product.selectedOrFirstAvailableVariant.availableForSale">
-                                    Buy Now
+                                    class="shop-btn shop-btn--primary w-full flex items-center justify-center gap-2"
+                                    onclick="const title = this.closest('.shop-modal__details').querySelector('.shop-modal__title').innerText.trim(); window.location.href = '/contact-us?subject=' + encodeURIComponent('Inquiry: ' + title) + '&message=' + encodeURIComponent('I would like to inquire about: ' + title + '. Please provide details regarding clarity, origin, and availability.');">
+                                    <span class="material-symbols-outlined text-base">mail</span>
+                                    Inquire About This Piece
                                 </button>
                             </div>
 
@@ -159,20 +141,7 @@
             </div>
         </section>
 
-        <!-- ─── CART TOGGLE BAR ─── -->
-        <div class="bg-surface border-b border-outline-variant/20 shadow-sm">
-            <div class="max-w-7xl mx-auto px-8 py-3 flex items-center justify-between">
-                <span class="font-label text-xs tracking-[0.2em] uppercase text-on-surface-variant">
-                    Browse Our Gems
-                </span>
-                <button
-                    onclick="document.getElementById('main-cart').showModal()"
-                    class="flex items-center gap-2 bg-primary text-white px-5 py-2 text-xs font-label uppercase tracking-widest hover:bg-primary/90 transition-colors duration-300">
-                    <span class="material-symbols-outlined text-base">shopping_bag</span>
-                    View Cart
-                </button>
-            </div>
-        </div>
+
 
         <!-- ─── PRODUCT GRID ─── -->
         <section class="py-20 px-8 bg-surface">
@@ -220,14 +189,12 @@
                                     <h3 class="shop-card__title">
                                         <shopify-data query="product.title"></shopify-data>
                                     </h3>
-                                    <div class="shop-card__price">
-                                        <shopify-money query="product.selectedOrFirstAvailableVariant.price"></shopify-money>
-                                    </div>
+
                                     <button
                                         class="shop-card__cta"
                                         onclick="document.getElementById('product-modal-context').update(event); document.getElementById('product-modal').showModal();">
-                                        View Details
-                                        <span class="material-symbols-outlined text-base">arrow_forward</span>
+                                        Inquire Now
+                                        <span class="material-symbols-outlined text-base">mail</span>
                                     </button>
                                 </div>
                             </article>
@@ -302,53 +269,7 @@
     <script src="scripts.js"></script>
 
     <style>
-        /* ══════════════════════════════════════
-           SHOPIFY CART STYLING
-           ══════════════════════════════════════ */
-        shopify-cart::part(dialog) {
-            border-radius: 0;
-            border-left: 1px solid #ECE7E4;
-            max-width: 420px;
-            width: 100%;
-            margin-left: auto;
-            margin-right: 0;
-            height: 100%;
-            max-height: 100%;
-        }
-        shopify-cart::part(primary-button) {
-            background-color: #006d43;
-            color: #ffffff;
-            border: none;
-            border-radius: 0;
-            font-family: 'Manrope', sans-serif;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            padding: 1rem;
-        }
-        shopify-cart::part(secondary-button) {
-            background-color: #ffffff;
-            color: #1c1b1a;
-            fill: #1c1b1a;
-            border: 1.5px solid #ECE7E4;
-            border-radius: 0;
-            font-family: 'Manrope', sans-serif;
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-        }
-        shopify-cart::part(line-heading) {
-            font-family: 'Noto Serif', serif;
-            font-weight: 400;
-            font-size: 1rem;
-            color: #1c1b1a;
-        }
-        shopify-cart::part(line-price) {
-            font-family: 'Manrope', sans-serif;
-            font-size: 0.875rem;
-            color: #3d4a41;
-        }
+
 
         /* ══════════════════════════════════════
            VARIANT SELECTOR STYLING
