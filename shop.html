@@ -43,7 +43,8 @@
                                 layout="constrained"
                                 width="520"
                                 height="520"
-                                query="product.selectedOrFirstAvailableVariant.image">
+                                object-fit="contain"
+                                query="product.featuredImage">
                             </shopify-media>
                         </div>
                         <!-- Details -->
@@ -65,6 +66,41 @@
                                     Inquire About This Piece
                                 </button>
                             </div>
+
+    <!-- Temporary Shadow DOM Style Inspector -->
+    <script>
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const banner = document.createElement('div');
+                banner.id = 'shopify-style-debug';
+                banner.style.cssText = 'position:fixed;bottom:20px;left:20px;background:#ba1a1a;color:white;padding:20px;z-index:99999;font-family:monospace;font-size:12px;white-space:pre-wrap;box-shadow:0 4px 20px rgba(0,0,0,0.5);';
+                banner.innerText = 'Shadow DOM Style Inspector:\n';
+                
+                const mediaEl = document.querySelector('shopify-media');
+                if (mediaEl) {
+                    banner.innerText += `shopify-media display: ${window.getComputedStyle(mediaEl).display}\n`;
+                    if (mediaEl.shadowRoot) {
+                        const img = mediaEl.shadowRoot.querySelector('img');
+                        if (img) {
+                            const comp = window.getComputedStyle(img);
+                            banner.innerText += `img inline style: ${img.style.cssText}\n`;
+                            banner.innerText += `img computed width: ${comp.width}\n`;
+                            banner.innerText += `img computed height: ${comp.height}\n`;
+                            banner.innerText += `img computed objectFit: ${comp.objectFit}\n`;
+                            banner.innerText += `img computed position: ${comp.position}\n`;
+                        } else {
+                            banner.innerText += 'No img found in shadow DOM.\n';
+                        }
+                    } else {
+                        banner.innerText += 'No shadowRoot on shopify-media.\n';
+                    }
+                } else {
+                    banner.innerText += 'No shopify-media element found.\n';
+                }
+                document.body.appendChild(banner);
+            }, 3000);
+        });
+    </script>
 
                             <div class="shop-modal__description">
                                 <shopify-data query="product.descriptionHtml"></shopify-data>
@@ -164,7 +200,8 @@
                                         layout="constrained"
                                         width="480"
                                         height="480"
-                                        query="product.selectedOrFirstAvailableVariant.image">
+                                        object-fit="contain"
+                                        query="product.featuredImage">
                                     </shopify-media>
                                     <!-- Hover overlay -->
                                     <div class="shop-card__overlay">
@@ -355,9 +392,11 @@
             display: block;
         }
         .shop-card__media shopify-media::part(image) {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
+            position: absolute;
+            inset: 0;
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: contain !important;
             transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .shop-card:hover .shop-card__media shopify-media::part(image) {
@@ -542,19 +581,23 @@
             }
         }
         .shop-modal__media {
+            position: relative;
             flex: 1;
             min-width: 0;
             background: #f7f3f0;
             overflow: hidden;
+            aspect-ratio: 1 / 1;
         }
         .shop-modal__media shopify-media {
             display: block;
             width: 100%;
         }
         .shop-modal__media shopify-media::part(image) {
-            width: 100%;
-            height: auto;
-            object-fit: contain;
+            position: absolute;
+            inset: 0;
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: contain !important;
             display: block;
         }
         .shop-modal__details {
