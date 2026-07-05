@@ -7,9 +7,10 @@ class MavaHeader extends HTMLElement {
         
         // Handle active navigation link dynamically
         const currentPath = window.location.pathname.split('/').pop() || '';
-        const isMfg = currentPath === 'manufacturing.html' || currentPath === 'manufacturing';
-        const isAbout = currentPath === 'about-us.html' || currentPath === 'about-us';
-        const isContact = currentPath === 'contact-us.html' || currentPath === 'contact-us';
+        const isMfg     = currentPath === 'manufacturing.html' || currentPath === 'manufacturing';
+        const isAbout   = currentPath === 'about-us.html'      || currentPath === 'about-us';
+        const isContact = currentPath === 'contact-us.html'    || currentPath === 'contact-us';
+        const isShop    = currentPath === 'shop.html'          || currentPath === 'shop';
 
         const getNavLinkClass = (isActive) => {
             return isActive 
@@ -50,6 +51,7 @@ class MavaHeader extends HTMLElement {
             <div class="space-y-12">
                 <div>
                     <nav class="flex flex-col gap-6">
+                        <a class="${getNavLinkClass(isShop)}" href="/shop">Shop</a>
                         <a class="${getNavLinkClass(isMfg)}" href="/manufacturing">Manufacturing</a>
                         <a class="${getNavLinkClass(isAbout)}" href="/about-us">About Us</a>
                         <a class="${getNavLinkClass(isContact)}" href="/contact-us">Contact Us</a>

@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html class="light scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Shop | MAVA GEMS — Zambian Emeralds</title>
+    <meta name="description" content="Browse MAVA Gems' collection of exquisite, certified Zambian emeralds. Ethically sourced, master-cut, and ready to ship worldwide." />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&amp;family=Inter:wght@100..900&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+    <script src="tailwind-config.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="header.js"></script>
+    <!-- Shopify Storefront Web Components -->
+    <script type="module" src="https://cdn.shopify.com/storefront/web-components.js"></script>
+</head>
+
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+
+    <!-- Shopify Store Configuration — wraps all Shopify elements -->
+    <shopify-store
+        store-domain="3nqv21-10.myshopify.com"
+        public-access-token="f5f25583d420588b8001f9590d67e2c5"
+        country="US"
+        language="en">
+
+    <!-- Shared Cart -->
+    <shopify-cart id="main-cart">
+        <div slot="empty">
+            <div class="flex flex-col items-center gap-3 py-8 text-on-surface-variant">
+                <span class="material-symbols-outlined text-4xl opacity-30">diamond</span>
+                <p class="font-label text-xs tracking-widest uppercase">Your cart is empty</p>
+            </div>
+        </div>
+        <span slot="checkout-button">Proceed to Checkout</span>
+    </shopify-cart>
+
+    <!-- Product Detail Modal -->
+    <dialog id="product-modal" class="shop-modal">
+        <shopify-context id="product-modal-context" type="product" wait-for-update>
+            <template>
+                <div class="shop-modal__inner">
+                    <!-- Close button -->
+                    <button class="shop-modal__close" onclick="document.getElementById('product-modal').close();" aria-label="Close">
+                        <span class="material-symbols-outlined text-lg">close</span>
+                    </button>
+                    <div class="shop-modal__layout">
+                        <!-- Image -->
+                        <div class="shop-modal__media">
+                            <shopify-media
+                                layout="constrained"
+                                width="520"
+                                height="520"
+                                query="product.selectedOrFirstAvailableVariant.image">
+                            </shopify-media>
+                        </div>
+                        <!-- Details -->
+                        <div class="shop-modal__details">
+                            <div class="shop-modal__header">
+                                <span class="shop-modal__vendor">
+                                    <shopify-data query="product.vendor"></shopify-data>
+                                </span>
+                                <h2 class="shop-modal__title">
+                                    <shopify-data query="product.title"></shopify-data>
+                                </h2>
+                                <div class="shop-modal__price">
+                                    <shopify-money query="product.selectedOrFirstAvailableVariant.price"></shopify-money>
+                                </div>
+                            </div>
+
+                            <shopify-variant-selector></shopify-variant-selector>
+
+                            <div class="shop-modal__actions">
+                                <button
+                                    class="shop-btn shop-btn--primary"
+                                    onclick="document.getElementById('main-cart').addLine(event).showModal();"
+                                    shopify-attr--disabled="!product.selectedOrFirstAvailableVariant.availableForSale">
+                                    <span class="material-symbols-outlined text-base">shopping_bag</span>
+                                    Add to Cart
+                                </button>
+                                <button
+                                    class="shop-btn shop-btn--secondary"
+                                    onclick="document.querySelector('shopify-store').buyNow(event)"
+                                    shopify-attr--disabled="!product.selectedOrFirstAvailableVariant.availableForSale">
+                                    Buy Now
+                                </button>
+                            </div>
+
+                            <div class="shop-modal__description">
+                                <shopify-data query="product.descriptionHtml"></shopify-data>
+                            </div>
+
+                            <div class="shop-modal__badges">
+                                <div class="shop-modal__badge">
+                                    <span class="material-symbols-outlined text-sm text-primary">verified</span>
+                                    <span>Origin Guaranteed</span>
+                                </div>
+                                <div class="shop-modal__badge">
+                                    <span class="material-symbols-outlined text-sm text-primary">eco</span>
+                                    <span>Ethically Sourced</span>
+                                </div>
+                                <div class="shop-modal__badge">
+                                    <span class="material-symbols-outlined text-sm text-primary">local_shipping</span>
+                                    <span>Worldwide Shipping</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+            <!-- Loading placeholder -->
+            <div shopify-loading-placeholder class="shop-modal__loading">
+                <div class="shop-modal__loading-spinner"></div>
+                <p class="font-label text-xs tracking-widest uppercase text-on-surface-variant/50 mt-4">Loading...</p>
+            </div>
+        </shopify-context>
+    </dialog>
+
+    <!-- Header -->
+    <mava-header></mava-header>
+
+    <main class="pt-20">
+
+        <!-- ─── HERO BANNER ─── -->
+        <section class="relative bg-[#002111] text-white overflow-hidden">
+            <div class="absolute inset-0 opacity-10 jardin-gradient"></div>
+            <!-- Decorative geometric accent -->
+            <div class="absolute top-0 right-0 w-1/2 h-full pointer-events-none overflow-hidden">
+                <div class="absolute -top-20 -right-20 w-[500px] h-[500px] rounded-full border border-white/5"></div>
+                <div class="absolute top-10 -right-10 w-[350px] h-[350px] rounded-full border border-white/5"></div>
+            </div>
+            <div class="relative z-10 max-w-7xl mx-auto px-8 py-24 md:py-32 flex flex-col md:flex-row items-center justify-between gap-12">
+                <div class="space-y-6 max-w-xl reveal-left">
+                    <span class="font-label text-white/60 tracking-[0.25em] uppercase text-xs font-bold">The Collection</span>
+                    <h1 class="font-headline text-4xl md:text-6xl font-light leading-tight">
+                        Exquisite <span class="italic">Zambian</span><br/>Emeralds
+                    </h1>
+                    <p class="font-body text-white/70 text-lg leading-relaxed max-w-md">
+                        Each stone is hand-selected, master-cut, and certified. Discover our curated collection of fine Zambian emeralds.
+                    </p>
+                </div>
+                <div class="flex gap-8 text-center reveal-right">
+                    <div>
+                        <span class="block font-headline text-4xl text-primary-fixed-dim">100%</span>
+                        <span class="font-label text-[10px] tracking-widest text-white/50 uppercase">Zambian Origin</span>
+                    </div>
+                    <div class="w-px bg-white/10"></div>
+                    <div>
+                        <span class="block font-headline text-4xl text-primary-fixed-dim">6+</span>
+                        <span class="font-label text-[10px] tracking-widest text-white/50 uppercase">Countries Served</span>
+                    </div>
+                    <div class="w-px bg-white/10"></div>
+                    <div>
+                        <span class="block font-headline text-4xl text-primary-fixed-dim">40+</span>
+                        <span class="font-label text-[10px] tracking-widest text-white/50 uppercase">Years Heritage</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── CART TOGGLE BAR ─── -->
+        <div class="sticky top-[73px] z-40 bg-surface/95 backdrop-blur-sm border-b border-outline-variant/20 shadow-sm">
+            <div class="max-w-7xl mx-auto px-8 py-3 flex items-center justify-between">
+                <span class="font-label text-xs tracking-[0.2em] uppercase text-on-surface-variant">
+                    Browse Our Gems
+                </span>
+                <button
+                    onclick="document.getElementById('main-cart').showModal()"
+                    class="flex items-center gap-2 bg-primary text-white px-5 py-2 text-xs font-label uppercase tracking-widest hover:bg-primary/90 transition-colors duration-300">
+                    <span class="material-symbols-outlined text-base">shopping_bag</span>
+                    View Cart
+                </button>
+            </div>
+        </div>
+
+        <!-- ─── PRODUCT GRID ─── -->
+        <section class="py-20 px-8 bg-surface">
+            <div class="max-w-7xl mx-auto">
+
+                <!-- Section header -->
+                <div class="text-center mb-16 reveal">
+                    <span class="font-label text-primary tracking-[0.2em] uppercase text-xs font-bold">Fine Gemstones</span>
+                    <h2 class="font-headline text-4xl md:text-5xl mt-4 font-light text-on-surface">Our Stones</h2>
+                    <p class="font-body text-on-surface-variant mt-4 max-w-lg mx-auto leading-relaxed">
+                        Every piece represents decades of expertise in sourcing, cutting, and certifying Zambian emeralds of exceptional quality.
+                    </p>
+                </div>
+
+                <!-- Product grid -->
+                <div class="shop-product-grid">
+                    <shopify-list-context type="product" query="products" first="20">
+                        <template>
+                            <article class="shop-card">
+                                <!-- Image -->
+                                <div class="shop-card__media img-zoom-wrap">
+                                    <shopify-media
+                                        layout="constrained"
+                                        width="480"
+                                        height="480"
+                                        query="product.selectedOrFirstAvailableVariant.image">
+                                    </shopify-media>
+                                    <!-- Hover overlay -->
+                                    <div class="shop-card__overlay">
+                                        <button
+                                            class="shop-card__quick-view"
+                                            onclick="document.getElementById('product-modal-context').update(event); document.getElementById('product-modal').showModal();">
+                                            <span class="material-symbols-outlined text-sm">visibility</span>
+                                            Quick View
+                                        </button>
+                                    </div>
+                                </div>
+                                <!-- Info -->
+                                <div class="shop-card__body">
+                                    <div class="shop-card__meta">
+                                        <span class="shop-card__vendor">
+                                            <shopify-data query="product.vendor"></shopify-data>
+                                        </span>
+                                    </div>
+                                    <h3 class="shop-card__title">
+                                        <shopify-data query="product.title"></shopify-data>
+                                    </h3>
+                                    <div class="shop-card__price">
+                                        <shopify-money query="product.selectedOrFirstAvailableVariant.price"></shopify-money>
+                                    </div>
+                                    <button
+                                        class="shop-card__cta"
+                                        onclick="document.getElementById('product-modal-context').update(event); document.getElementById('product-modal').showModal();">
+                                        View Details
+                                        <span class="material-symbols-outlined text-base">arrow_forward</span>
+                                    </button>
+                                </div>
+                            </article>
+                        </template>
+                        <!-- Loading skeleton -->
+                        <div shopify-loading-placeholder class="shop-product-grid">
+                            <div class="shop-card shop-card--skeleton" aria-hidden="true">
+                                <div class="shop-card__media shop-card__media--skeleton"></div>
+                                <div class="shop-card__body">
+                                    <div class="skeleton-line skeleton-line--short"></div>
+                                    <div class="skeleton-line"></div>
+                                    <div class="skeleton-line skeleton-line--medium"></div>
+                                </div>
+                            </div>
+                            <div class="shop-card shop-card--skeleton" aria-hidden="true">
+                                <div class="shop-card__media shop-card__media--skeleton"></div>
+                                <div class="shop-card__body">
+                                    <div class="skeleton-line skeleton-line--short"></div>
+                                    <div class="skeleton-line"></div>
+                                    <div class="skeleton-line skeleton-line--medium"></div>
+                                </div>
+                            </div>
+                            <div class="shop-card shop-card--skeleton" aria-hidden="true">
+                                <div class="shop-card__media shop-card__media--skeleton"></div>
+                                <div class="shop-card__body">
+                                    <div class="skeleton-line skeleton-line--short"></div>
+                                    <div class="skeleton-line"></div>
+                                    <div class="skeleton-line skeleton-line--medium"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </shopify-list-context>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ─── TRUST STRIP ─── -->
+        <section class="py-16 bg-surface-container-low border-y border-outline-variant/20">
+            <div class="max-w-7xl mx-auto px-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center reveal">
+                    <div class="flex flex-col items-center gap-3">
+                        <div class="w-12 h-12 rounded-full border border-primary/20 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-primary">verified</span>
+                        </div>
+                        <h4 class="font-headline text-lg font-light">Certified Authenticity</h4>
+                        <p class="font-body text-on-surface-variant text-sm leading-relaxed max-w-xs">Every stone guaranteed by Gübelin and other world-class independent laboratories.</p>
+                    </div>
+                    <div class="flex flex-col items-center gap-3">
+                        <div class="w-12 h-12 rounded-full border border-primary/20 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-primary">local_shipping</span>
+                        </div>
+                        <h4 class="font-headline text-lg font-light">Insured Global Shipping</h4>
+                        <p class="font-body text-on-surface-variant text-sm leading-relaxed max-w-xs">Secure, insured delivery to USA, Switzerland, Hong Kong, India, Bangkok, and France.</p>
+                    </div>
+                    <div class="flex flex-col items-center gap-3">
+                        <div class="w-12 h-12 rounded-full border border-primary/20 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-primary">eco</span>
+                        </div>
+                        <h4 class="font-headline text-lg font-light">Ethical Sourcing</h4>
+                        <p class="font-body text-on-surface-variant text-sm leading-relaxed max-w-xs">Direct-to-mine partnerships with Gemfields and Grizzly Mines ensure full traceability.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <mava-footer></mava-footer>
+    <script src="footer.js"></script>
+    <script src="scripts.js"></script>
+
+    <style>
+        /* ══════════════════════════════════════
+           SHOPIFY CART STYLING
+           ══════════════════════════════════════ */
+        shopify-cart::part(dialog) {
+            border-radius: 0;
+            border-left: 1px solid #ECE7E4;
+            max-width: 420px;
+            width: 100%;
+            margin-left: auto;
+            margin-right: 0;
+            height: 100%;
+            max-height: 100%;
+        }
+        shopify-cart::part(primary-button) {
+            background-color: #006d43;
+            color: #ffffff;
+            border: none;
+            border-radius: 0;
+            font-family: 'Manrope', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 1rem;
+        }
+        shopify-cart::part(secondary-button) {
+            background-color: #ffffff;
+            color: #1c1b1a;
+            fill: #1c1b1a;
+            border: 1.5px solid #ECE7E4;
+            border-radius: 0;
+            font-family: 'Manrope', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+        }
+        shopify-cart::part(line-heading) {
+            font-family: 'Noto Serif', serif;
+            font-weight: 400;
+            font-size: 1rem;
+            color: #1c1b1a;
+        }
+        shopify-cart::part(line-price) {
+            font-family: 'Manrope', sans-serif;
+            font-size: 0.875rem;
+            color: #3d4a41;
+        }
+
+        /* ══════════════════════════════════════
+           VARIANT SELECTOR STYLING
+           ══════════════════════════════════════ */
+        shopify-variant-selector::part(form) {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        shopify-variant-selector::part(label) {
+            font-family: 'Manrope', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #3d4a41;
+            margin-bottom: 0.5rem;
+        }
+        shopify-variant-selector::part(radio) {
+            border: 1.5px solid #bccabe;
+            border-radius: 0;
+            padding: 0.5rem 1rem;
+            font-family: 'Manrope', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #1c1b1a;
+            background: #fdf8f5;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+        shopify-variant-selector::part(radio-selected) {
+            border-color: #006d43;
+            background-color: #006d43;
+            color: #ffffff;
+        }
+        shopify-variant-selector::part(color-swatch) {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 2px solid #bccabe;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        shopify-variant-selector::part(color-swatch-selected) {
+            border-color: #006d43;
+            transform: scale(1.15);
+        }
+
+        /* ══════════════════════════════════════
+           PRODUCT GRID
+           ══════════════════════════════════════ */
+        .shop-product-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 2rem;
+        }
+        @media (min-width: 640px) {
+            .shop-product-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (min-width: 1024px) {
+            .shop-product-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        /* ══════════════════════════════════════
+           PRODUCT CARD
+           ══════════════════════════════════════ */
+        .shop-card {
+            background: #ffffff;
+            border: 1px solid #f0ece9;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                        transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .shop-card:hover {
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            transform: translateY(-4px);
+        }
+        .shop-card__media {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 1 / 1;
+            background: #f7f3f0;
+        }
+        .shop-card__media shopify-media {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        .shop-card__media shopify-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .shop-card:hover .shop-card__media shopify-media img {
+            transform: scale(1.04);
+        }
+        .shop-card__overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .shop-card:hover .shop-card__overlay {
+            opacity: 1;
+        }
+        .shop-card__quick-view {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.95);
+            color: #1c1b1a;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-family: 'Manrope', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transform: translateY(8px);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                        background 0.3s ease;
+        }
+        .shop-card:hover .shop-card__quick-view {
+            transform: translateY(0);
+        }
+        .shop-card__quick-view:hover {
+            background: #006d43;
+            color: #ffffff;
+        }
+        .shop-card__body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.625rem;
+            flex: 1;
+        }
+        .shop-card__meta {
+            font-family: 'Manrope', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #006d43;
+        }
+        .shop-card__vendor {
+            display: block;
+        }
+        .shop-card__title {
+            font-family: 'Noto Serif', serif;
+            font-size: 1.125rem;
+            font-weight: 400;
+            color: #1c1b1a;
+            line-height: 1.4;
+            margin: 0;
+        }
+        .shop-card__price {
+            font-family: 'Manrope', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1c1b1a;
+            margin-top: 0.25rem;
+        }
+        .shop-card__cta {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: auto;
+            padding-top: 1rem;
+            border-top: 1px solid #f0ece9;
+            background: none;
+            border-left: none;
+            border-right: none;
+            border-bottom: none;
+            font-family: 'Manrope', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #006d43;
+            cursor: pointer;
+            transition: gap 0.3s ease, color 0.3s ease;
+        }
+        .shop-card__cta:hover {
+            gap: 0.75rem;
+            color: #004d30;
+        }
+
+        /* ══════════════════════════════════════
+           SKELETON LOADERS
+           ══════════════════════════════════════ */
+        .shop-card--skeleton {
+            pointer-events: none;
+        }
+        .shop-card__media--skeleton {
+            background: linear-gradient(90deg, #f0ece9 25%, #e6e2df 50%, #f0ece9 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+        .skeleton-line {
+            height: 14px;
+            background: linear-gradient(90deg, #f0ece9 25%, #e6e2df 50%, #f0ece9 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+            border-radius: 2px;
+            width: 100%;
+        }
+        .skeleton-line--short  { width: 40%; }
+        .skeleton-line--medium { width: 60%; }
+        @keyframes shimmer {
+            0%   { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        /* ══════════════════════════════════════
+           PRODUCT MODAL
+           ══════════════════════════════════════ */
+        .shop-modal {
+            padding: 0;
+            border: none;
+            border-radius: 0.25rem;
+            box-shadow: 0 32px 80px rgba(0, 0, 0, 0.2);
+            max-width: min(920px, 95vw);
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            background: #fdf8f5;
+        }
+        .shop-modal::backdrop {
+            background: rgba(28, 27, 26, 0.6);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+        .shop-modal__inner {
+            position: relative;
+            padding: 2rem;
+        }
+        .shop-modal__close {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.25rem;
+            width: 36px;
+            height: 36px;
+            border: 1.5px solid #bccabe;
+            background: #fdf8f5;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #1c1b1a;
+            transition: background 0.3s ease, border-color 0.3s ease;
+            z-index: 10;
+        }
+        .shop-modal__close:hover {
+            background: #1c1b1a;
+            color: #fdf8f5;
+            border-color: #1c1b1a;
+        }
+        .shop-modal__layout {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        @media (min-width: 768px) {
+            .shop-modal__layout {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+        }
+        .shop-modal__media {
+            flex: 1;
+            min-width: 0;
+            background: #f7f3f0;
+            overflow: hidden;
+        }
+        .shop-modal__media shopify-media {
+            display: block;
+            width: 100%;
+        }
+        .shop-modal__media shopify-media img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            display: block;
+        }
+        .shop-modal__details {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .shop-modal__header {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            padding-top: 1rem;
+        }
+        .shop-modal__vendor {
+            font-family: 'Manrope', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #006d43;
+            display: block;
+        }
+        .shop-modal__title {
+            font-family: 'Noto Serif', serif;
+            font-size: 1.875rem;
+            font-weight: 300;
+            color: #1c1b1a;
+            margin: 0;
+            line-height: 1.2;
+        }
+        .shop-modal__price {
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1c1b1a;
+        }
+        .shop-modal__actions {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .shop-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            width: 100%;
+            padding: 1rem;
+            font-family: 'Manrope', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            cursor: pointer;
+            border: 2px solid #006d43;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .shop-btn:disabled {
+            opacity: 0.35;
+            cursor: not-allowed;
+        }
+        .shop-btn--primary {
+            background: #006d43;
+            color: #ffffff;
+        }
+        .shop-btn--primary:hover:not(:disabled) {
+            background: #004d30;
+            border-color: #004d30;
+        }
+        .shop-btn--secondary {
+            background: transparent;
+            color: #006d43;
+        }
+        .shop-btn--secondary:hover:not(:disabled) {
+            background: #006d43;
+            color: #ffffff;
+        }
+        .shop-modal__description {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.875rem;
+            color: #3d4a41;
+            line-height: 1.7;
+            padding-top: 1rem;
+            border-top: 1px solid #ECE7E4;
+        }
+        .shop-modal__description p { margin: 0; }
+        .shop-modal__badges {
+            display: flex;
+            flex-direction: column;
+            gap: 0.625rem;
+            padding-top: 1rem;
+            border-top: 1px solid #ECE7E4;
+        }
+        .shop-modal__badge {
+            display: flex;
+            align-items: center;
+            gap: 0.625rem;
+            font-family: 'Manrope', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #3d4a41;
+        }
+        /* Loading state */
+        .shop-modal__loading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 300px;
+            padding: 2rem;
+        }
+        .shop-modal__loading-spinner {
+            width: 32px;
+            height: 32px;
+            border: 2px solid #ECE7E4;
+            border-top-color: #006d43;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+
+</shopify-store>
+</body>
+</html>
