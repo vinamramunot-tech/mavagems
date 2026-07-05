@@ -1,13 +1,16 @@
-/* Shared Styles for MAVA Gems */
+/* ============================================
+   MAVA GEMS — Shared Styles
+   Smooth, GPU-composited transitions throughout
+   ============================================ */
 
-/* Icons */
+/* ---------- Icons ---------- */
 .material-symbols-outlined {
     font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
     display: inline-block;
     line-height: 1;
 }
 
-/* Gradients & Backgrounds */
+/* ---------- Gradients & Backgrounds ---------- */
 .jardin-gradient {
     background: linear-gradient(135deg, #006d43 0%, #00a86b 100%);
 }
@@ -16,7 +19,7 @@
     -webkit-backdrop-filter: blur(12px);
 }
 
-/* Prevent FOUC: lock header position before Tailwind processes its classes */
+/* ---------- Header: Prevent FOUC ---------- */
 mava-header {
     display: block;
     position: fixed;
@@ -30,36 +33,42 @@ mava-header > * {
     pointer-events: auto;
 }
 
-/* Header & Nav */
+/* ---------- Header & Nav ---------- */
 #header-nav {
-    transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), backdrop-filter 0.5s ease;
+    transition: background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                backdrop-filter 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 0.6s ease;
+    will-change: background-color, backdrop-filter;
 }
 .scrolled #header-nav {
-    background-color: rgba(253, 248, 245, 0.95);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
-    backdrop-filter: blur(12px);
+    background-color: rgba(253, 248, 245, 0.96);
+    box-shadow: 0 1px 40px rgba(0, 0, 0, 0.06);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
 }
 
-/* Nav Logo */
+/* ---------- Nav Logo ---------- */
 #nav-logo-container {
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
     transform-origin: center center;
+    will-change: transform;
 }
 #nav-logo-mava, #nav-logo-gems {
-    transition: color 0.6s ease;
+    transition: color 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.scrolled #nav-logo-mava, 
+.scrolled #nav-logo-mava,
 .scrolled #nav-logo-gems {
     color: #1C1B1A;
 }
-.dark.scrolled #nav-logo-mava, 
+.dark.scrolled #nav-logo-mava,
 .dark.scrolled #nav-logo-gems {
     color: #FDF8F5;
 }
 
-/* Hamburger Menu Button */
+/* ---------- Hamburger Menu Button ---------- */
 #menu-btn {
-    transition: color 0.6s ease;
+    transition: color 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .scrolled #menu-btn {
     color: #1C1B1A !important;
@@ -68,9 +77,10 @@ mava-header > * {
     color: #FDF8F5 !important;
 }
 
-/* Side Navigation Drawer */
+/* ---------- Side Navigation Drawer ---------- */
 #nav-drawer, #side-nav {
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
 }
 #nav-drawer {
     transform: translateX(-100%);
@@ -78,8 +88,11 @@ mava-header > * {
 #nav-drawer.open {
     transform: translateX(0);
 }
+#overlay-bg {
+    transition: opacity 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-/* Utilities */
+/* ---------- Utilities ---------- */
 .hide-scrollbar, .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -88,7 +101,7 @@ mava-header > * {
     display: none;
 }
 
-/* Editorial Underline (Combined animated version from manufacturing) */
+/* ---------- Editorial Underline ---------- */
 .editorial-underline {
     position: relative;
     display: inline-block;
@@ -101,21 +114,24 @@ mava-header > * {
     width: 0;
     height: 1px;
     background-color: currentColor;
-    transition: all 0.5s ease;
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     transform: translateX(-50%);
 }
 .editorial-underline:hover::after {
     width: 100%;
 }
 
-/* Forms */
+/* ---------- Forms ---------- */
 input:focus, select:focus, textarea:focus {
     outline: none !important;
     box-shadow: none !important;
     border-color: #00A86B !important;
 }
 
-/* Timeline Components (Index) */
+/* ==============================================
+   TIMELINE COMPONENTS (Index page)
+   ============================================== */
 .year-btn.active {
     color: #006d43;
     font-weight: 700;
@@ -129,6 +145,7 @@ input:focus, select:focus, textarea:focus {
     width: 3px;
     height: 40px;
     background-color: #006d43;
+    border-radius: 2px;
 }
 @media (max-width: 767px) {
     .year-btn.active::after {
@@ -140,19 +157,28 @@ input:focus, select:focus, textarea:focus {
         height: 3px;
     }
 }
+
+/* Timeline content: smooth opacity + vertical slide */
 .timeline-content {
-    transition: opacity 0.4s ease, transform 0.4s ease;
-}
-.timeline-content.hidden {
-    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(16px);
+    transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    will-change: opacity, transform;
 }
 .timeline-content.active {
-    display: block;
     opacity: 1;
     transform: translateY(0);
+    pointer-events: auto;
+    position: relative;
 }
+
+/* Scroll indicators */
 .scroll-at-top #scroll-up-indicator {
     opacity: 0 !important;
     pointer-events: none;
@@ -162,11 +188,13 @@ input:focus, select:focus, textarea:focus {
     pointer-events: none;
 }
 
-/* Map Labels (Index) */
+/* ==============================================
+   MAP LABELS (Index page)
+   ============================================== */
 .map-label {
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
     transform: translateY(5px);
     background: rgba(255, 255, 255, 0.9);
     padding: 2px 8px;
@@ -191,4 +219,132 @@ input:focus, select:focus, textarea:focus {
     .group:hover .map-label {
         opacity: 1;
     }
+}
+
+/* ==============================================
+   SCROLL-REVEAL ANIMATIONS
+   Elements animate in when entering the viewport
+   ============================================== */
+
+/* Base state: hidden, slightly offset */
+.reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.75s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.75s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: opacity, transform;
+}
+
+/* Active (in-viewport) state */
+.reveal.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered children delay variants */
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+/* Slide from left */
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.75s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.75s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: opacity, transform;
+}
+.reveal-left.in-view {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Slide from right */
+.reveal-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.75s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.75s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: opacity, transform;
+}
+.reveal-right.in-view {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Scale-up reveal (for images) */
+.reveal-scale {
+    opacity: 0;
+    transform: scale(0.96);
+    transition: opacity 0.85s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.85s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: opacity, transform;
+}
+.reveal-scale.in-view {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* ==============================================
+   IMAGE HOVER EFFECTS
+   Smooth zoom on hover for all content images
+   ============================================== */
+.img-zoom-wrap {
+    overflow: hidden;
+}
+.img-zoom-wrap img {
+    transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+}
+.img-zoom-wrap:hover img {
+    transform: scale(1.04);
+}
+
+/* Hero video: smooth fade-in on load */
+#indexHeroVideo {
+    opacity: 0;
+    transition: opacity 1.2s ease;
+    will-change: opacity;
+}
+#indexHeroVideo.loaded {
+    opacity: 1;
+}
+
+/* ==============================================
+   MANUFACTURING PAGE — additional smoothness
+   ============================================== */
+.grayscale-hover {
+    transition: filter 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: filter;
+}
+
+/* ==============================================
+   PRINCIPLES SECTION — icon circle hover
+   ============================================== */
+.principle-icon {
+    transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+}
+.group:hover .principle-icon {
+    transform: scale(1.08);
+}
+
+/* ==============================================
+   SMOOTH PAGE TRANSITIONS
+   ============================================== */
+body {
+    animation: pageFadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+@keyframes pageFadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Link transitions throughout */
+a {
+    transition: color 0.3s ease, opacity 0.3s ease;
 }
