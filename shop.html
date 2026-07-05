@@ -49,9 +49,6 @@
                         <!-- Details -->
                         <div class="shop-modal__details">
                             <div class="shop-modal__header">
-                                <span class="shop-modal__vendor">
-                                    <shopify-data query="product.vendor"></shopify-data>
-                                </span>
                                 <h2 class="shop-modal__title">
                                     <shopify-data query="product.title"></shopify-data>
                                 </h2>
@@ -182,9 +179,6 @@
                                 <!-- Info -->
                                 <div class="shop-card__body">
                                     <div class="shop-card__meta">
-                                        <span class="shop-card__vendor">
-                                            <shopify-data query="product.vendor"></shopify-data>
-                                        </span>
                                     </div>
                                     <h3 class="shop-card__title">
                                         <shopify-data query="product.title"></shopify-data>
@@ -360,13 +354,13 @@
             height: 100%;
             display: block;
         }
-        .shop-card__media shopify-media img {
+        .shop-card__media shopify-media::part(image) {
             width: 100%;
             height: 100%;
             object-fit: contain;
             transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .shop-card:hover .shop-card__media shopify-media img {
+        .shop-card:hover .shop-card__media shopify-media::part(image) {
             transform: scale(1.04);
         }
         .shop-card__overlay {
@@ -557,7 +551,7 @@
             display: block;
             width: 100%;
         }
-        .shop-modal__media shopify-media img {
+        .shop-modal__media shopify-media::part(image) {
             width: 100%;
             height: auto;
             object-fit: contain;
