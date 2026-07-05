@@ -94,29 +94,21 @@ document.addEventListener('DOMContentLoaded', () => {
     //  4. SCROLL — Header colour + logo scale transition
     // ============================================================
     const scrollThreshold = 150;
-    let ticking = false;
 
-    function onScroll() {
-        if (ticking) return;
-        ticking = true;
-        requestAnimationFrame(() => {
-            const scrollY = window.scrollY;
-            const body = document.body;
-            const logoContainer = document.getElementById('nav-logo-container');
+    window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+        const body = document.body;
+        const logoContainer = document.getElementById('nav-logo-container');
 
-            const progress = Math.min(scrollY / scrollThreshold, 1);
-            const currentScale = 1.2 - (progress * 0.2); // 1.2 → 1.0
+        const progress = Math.min(scrollY / scrollThreshold, 1);
+        const currentScale = 1.2 - (progress * 0.2); // 1.2 → 1.0
 
-            if (logoContainer) {
-                logoContainer.style.transform = `translateX(-50%) scale(${currentScale})`;
-            }
+        if (logoContainer) {
+            logoContainer.style.transform = `translateX(-50%) scale(${currentScale})`;
+        }
 
-            body.classList.toggle('scrolled', scrollY > 50);
-            ticking = false;
-        });
-    }
-
-    window.addEventListener('scroll', onScroll, { passive: true });
+        body.classList.toggle('scrolled', scrollY > 50);
+    }, { passive: true });
 
 
     // ============================================================
