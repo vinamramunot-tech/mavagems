@@ -32,7 +32,11 @@ class MavaHeader extends HTMLElement {
                 <span class="text-xl md:text-2xl font-headline tracking-[0.2em] uppercase font-light leading-tight ${textColorClass}" id="nav-logo-mava">MAVA</span>
                 <span class="text-[10px] md:text-[12px] font-headline tracking-[0.4em] uppercase font-light -mt-1 ${textOpacityClass}" id="nav-logo-gems">GEMS</span>
             </a>
-            <div class="w-10"></div>
+            <div class="flex items-center gap-6">
+                <a href="/shop" class="${textColorClass} hover:text-primary transition-colors" id="shop-btn" aria-label="Shop">
+                    <span class="material-symbols-outlined transition-colors duration-600" data-icon="store">store</span>
+                </a>
+            </div>
         </nav>
     </header>
 
@@ -51,10 +55,10 @@ class MavaHeader extends HTMLElement {
             <div class="space-y-12">
                 <div>
                     <nav class="flex flex-col gap-6">
-                        <a class="${getNavLinkClass(isShop)}" href="/shop">Shop</a>
-                        <a class="${getNavLinkClass(isMfg)}" href="/manufacturing">Manufacturing</a>
                         <a class="${getNavLinkClass(isAbout)}" href="/about-us">About Us</a>
+                        <a class="${getNavLinkClass(isMfg)}" href="/manufacturing">Manufacturing</a>
                         <a class="${getNavLinkClass(isContact)}" href="/contact-us">Contact Us</a>
+                        <a class="${getNavLinkClass(isShop)}" href="/shop">Shop</a>
                     </nav>
                 </div>
             </div>
