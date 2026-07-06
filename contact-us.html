@@ -157,6 +157,16 @@ document.addEventListener('DOMContentLoaded', () => {
             messageInput.dispatchEvent(new Event('input', { bubbles: true }));
         }
     }
+    if (params.get('scroll') === 'true') {
+        const target = document.getElementById('concierge-request-form');
+        if (target) {
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 300);
+            });
+        }
+    }
 });
 </script>
 </body></html>
