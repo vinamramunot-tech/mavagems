@@ -100,7 +100,7 @@ function renderTimeline() {
         // Build Content Panel
         const contentDiv = document.createElement('div');
         contentDiv.id = `content-${item.year}`;
-        contentDiv.className = `timeline-content space-y-8 ${isActive ? 'active' : 'hidden'}`;
+        contentDiv.className = `timeline-content space-y-8 ${isActive ? 'active' : ''}`;
         
         contentDiv.innerHTML = `
             <div class="max-w-2xl">
